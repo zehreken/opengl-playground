@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3009076822C41EEF0058A4AF /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */; };
+		3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076922C425E40058A4AF /* GLUT.framework */; };
+		3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076B22C425F40058A4AF /* OpenGL.framework */; };
 		300E654A22C3EE4D00952BC7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300E654922C3EE4D00952BC7 /* main.cpp */; };
+		300E655222C3F10A00952BC7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300E655122C3F10A00952BC7 /* SDL2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +27,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		3009076622C41EB00058A4AF /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../usr/local/lib/libGLEW.a; sourceTree = "<group>"; };
+		3009076922C425E40058A4AF /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		3009076B22C425F40058A4AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		300E654622C3EE4D00952BC7 /* opengl_playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl_playground; sourceTree = BUILT_PRODUCTS_DIR; };
 		300E654922C3EE4D00952BC7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		300E655122C3F10A00952BC7 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +41,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */,
+				3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */,
+				3009076822C41EEF0058A4AF /* libGLEW.2.1.0.dylib in Frameworks */,
+				300E655222C3F10A00952BC7 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +56,7 @@
 			children = (
 				300E654822C3EE4D00952BC7 /* opengl_playground */,
 				300E654722C3EE4D00952BC7 /* Products */,
+				300E655022C3F10A00952BC7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -62,6 +76,18 @@
 				300E654922C3EE4D00952BC7 /* main.cpp */,
 			);
 			path = opengl_playground;
+			sourceTree = "<group>";
+		};
+		300E655022C3F10A00952BC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3009076B22C425F40058A4AF /* OpenGL.framework */,
+				3009076922C425E40058A4AF /* GLUT.framework */,
+				3009076622C41EB00058A4AF /* libGLEW.a */,
+				3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */,
+				300E655122C3F10A00952BC7 /* SDL2.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +204,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include/GL;
+				"LIBRARY_SEARCH_PATHS[arch=*]" = (
+					/usr/local/lib/,
+					/usr/local/include/GL,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -231,6 +262,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include/GL;
+				"LIBRARY_SEARCH_PATHS[arch=*]" = (
+					/usr/local/lib/,
+					/usr/local/include/GL,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -242,6 +278,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -250,6 +290,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
