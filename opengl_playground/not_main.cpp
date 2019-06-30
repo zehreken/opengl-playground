@@ -3,7 +3,7 @@
 
 //Using SDL, SDL OpenGL, GLEW, standard IO, and strings
 #include <SDL2/SDL.h>
-#include <glew.h>
+#include <GL/glew.h>
 #include <SDL2/SDL_opengl.h>
 #include <GLUT/GLUT.h>
 #include <stdio.h>

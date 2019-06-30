@@ -206,7 +206,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include/GL;
+				HEADER_SEARCH_PATHS = (
+					/Users/zehreken/Downloads/glm,
+					/usr/local/include,
+				);
 				"LIBRARY_SEARCH_PATHS[arch=*]" = (
 					/usr/local/lib/,
 					/usr/local/include/GL,
@@ -264,7 +267,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include/GL;
+				HEADER_SEARCH_PATHS = (
+					/Users/zehreken/Downloads/glm,
+					/usr/local/include,
+				);
 				"LIBRARY_SEARCH_PATHS[arch=*]" = (
 					/usr/local/lib/,
 					/usr/local/include/GL,
