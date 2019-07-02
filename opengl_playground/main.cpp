@@ -191,7 +191,28 @@ int main(int argc, char* args[])
 		
 		// Draw a rectangle from the 2 triangles using 6 indices
 //		glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
+		
+		// This is the cube
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+		
+		
+		glEnable(GL_STENCIL_TEST);
+		// This is for the floor
+		// Draw floor
+		glStencilFunc(GL_ALWAYS, 1, 0xFF);
+		glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+		glStencilMask(0xFF);
+		glDepthMask(GL_FALSE);
+		glClear(GL_STENCIL_BUFFER_BIT);
+		glDrawArrays(GL_TRIANGLES, 36, 6);
+		
+		// This is the reflecting cube
+		trans = glm::scale(glm::translate(trans, glm::vec3(0, 0, -1)), glm::vec3(1, 1, -1));
+		glUniformMatrix4fv(uniTrans, 1, GL_FALSE, glm::value_ptr(trans));
+		
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		
+		glDisable(GL_STENCIL_TEST);
 		
 		SDL_GL_SwapWindow(window);
 	}
