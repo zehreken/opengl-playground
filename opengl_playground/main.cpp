@@ -19,7 +19,7 @@ uniform mat4 proj;
 
 void main()
 {
-	Color = color;
+	Color = position;
 	gl_Position = proj * view * trans * vec4(position, 1);
 }
 )glsl";
@@ -116,20 +116,6 @@ int main(int argc, char* args[])
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	
-	// Create an element array NOT USED
-	GLuint ebo;
-	glGenBuffers(1, &ebo);
-	
-	GLuint elements[] =
-	{
-		0, 1, 2,
-		2, 3, 0,
-	};
-	
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
-	// ================================
-	
 	// Create and compile the vertex shader
 	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertexShader, 1, &vertexSource, NULL);
@@ -195,7 +181,7 @@ int main(int argc, char* args[])
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 		glm::mat4 trans = glm::mat4(1.0f);
-		trans = glm::rotate(trans, glm::radians(rotation++), glm::vec3(0.0f, 0.0f, 1.0f));
+		trans = glm::rotate(trans, glm::radians(rotation += 1), glm::vec3(0.0f, 0.0f, 1.0f));
 //		GLint uniTrans = glGetUniformLocation(shaderProgram, "trans");
 		glUniformMatrix4fv(uniTrans, 1, GL_FALSE, glm::value_ptr(trans));
 		
@@ -237,7 +223,6 @@ int main(int argc, char* args[])
 	glDeleteShader(fragmentShader);
 	glDeleteShader(vertexShader);
 	
-	glDeleteBuffers(1, &ebo);
 	glDeleteBuffers(1, &vbo);
 	
 	glDeleteVertexArrays(1, &vao);
