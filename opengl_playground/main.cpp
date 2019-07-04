@@ -34,7 +34,7 @@ int main(int argc, char* args[])
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 	
-	SDL_Window *window = SDL_CreateWindow("OpenGL Playground", NULL, NULL, 800, 600, SDL_WINDOW_OPENGL);
+	SDL_Window *window = SDL_CreateWindow("OpenGL Playground", 250, 100, 800, 600, SDL_WINDOW_OPENGL);
 	SDL_GLContext context = SDL_GL_CreateContext(window);
 	
 	glewExperimental = GL_TRUE;
