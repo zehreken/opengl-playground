@@ -40,7 +40,7 @@ int main(int argc, char* args[])
 	
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 	
 	SDL_Window* window = SDL_CreateWindow("OpenGL Playground", 100, 100, 800, 600, SDL_WINDOW_OPENGL);
@@ -50,6 +50,11 @@ int main(int argc, char* args[])
 	// Initialize GLEW
 	glewExperimental = GL_TRUE;
 	glewInit();
+	
+	// Create Vertex Array Object, size greater than one
+//	GLuint gVao[10];
+//	glGenVertexArrays(10, gVao);
+//	glBindVertexArray(gVao);
 	
 	// Create Vertex Array Object
 	GLuint vao;
@@ -189,7 +194,7 @@ int main(int argc, char* args[])
 //		glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
 		
 		// This is the cube
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawArrays(GL_LINES, 0, 36);
 		
 		
 		glEnable(GL_STENCIL_TEST);
@@ -201,7 +206,7 @@ int main(int argc, char* args[])
 		glDepthMask(GL_FALSE);
 		glClear(GL_STENCIL_BUFFER_BIT);
 		
-		glDrawArrays(GL_TRIANGLES, 36, 6);
+		glDrawArrays(GL_LINES, 36, 6);
 		
 		// Draw cube reflection
 		glStencilFunc(GL_EQUAL, 1, 0xFF);
@@ -212,7 +217,7 @@ int main(int argc, char* args[])
 		trans = glm::scale(glm::translate(trans, glm::vec3(0, 0, -1)), glm::vec3(1, 1, -1));
 		glUniformMatrix4fv(uniTrans, 1, GL_FALSE, glm::value_ptr(trans));
 		
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		glDrawArrays(GL_LINES, 0, 36);
 		
 		glDisable(GL_STENCIL_TEST);
 		

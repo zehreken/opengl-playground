@@ -11,7 +11,6 @@
 		3009076822C41EEF0058A4AF /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */; };
 		3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076922C425E40058A4AF /* GLUT.framework */; };
 		3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076B22C425F40058A4AF /* OpenGL.framework */; };
-		300E654A22C3EE4D00952BC7 /* not_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300E654922C3EE4D00952BC7 /* not_main.cpp */; };
 		300E655222C3F10A00952BC7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300E655122C3F10A00952BC7 /* SDL2.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		3009076922C425E40058A4AF /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		3009076B22C425F40058A4AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		300E654622C3EE4D00952BC7 /* opengl_playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl_playground; sourceTree = BUILT_PRODUCTS_DIR; };
-		300E654922C3EE4D00952BC7 /* not_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = not_main.cpp; sourceTree = "<group>"; };
 		300E655122C3F10A00952BC7 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +72,6 @@
 		300E654822C3EE4D00952BC7 /* opengl_playground */ = {
 			isa = PBXGroup;
 			children = (
-				300E654922C3EE4D00952BC7 /* not_main.cpp */,
 				3003EF9B22C788290053B769 /* main.cpp */,
 			);
 			path = opengl_playground;
@@ -148,7 +145,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3003EF9C22C788290053B769 /* main.cpp in Sources */,
-				300E654A22C3EE4D00952BC7 /* not_main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
