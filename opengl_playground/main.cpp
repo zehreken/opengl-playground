@@ -4,10 +4,12 @@
 const GLchar *VERTEX_SOURCE = R"glsl(
 #version 330 core
 layout (location = 0) in vec3 aPos;
+out vec4 vertexColor;
 
 void main()
 {
 	gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+	vertexColor = vec4(0.5, 0.0, 0.0, 0.0);
 }
 )glsl";
 
@@ -15,9 +17,11 @@ const GLchar *FRAGMENT_SOURCE = R"glsl(
 #version 330 core
 out vec4 FragColor;
 
+in vec4 vertexColor;
+
 void main()
 {
-	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+	FragColor = vertexColor;
 }
 )glsl";
 
@@ -39,6 +43,12 @@ int main(int argc, char* args[])
 	
 	glewExperimental = GL_TRUE;
 	glewInit();
+	
+	// Test how many attributes does the GPU supports
+	int attribCount;
+	glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &attribCount);
+	printf("max attribute: %d\n", attribCount);
+	// ==============================================
 	
 	// Program related
 	unsigned  vertexShader = 0;
