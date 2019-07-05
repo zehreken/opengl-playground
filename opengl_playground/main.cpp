@@ -16,12 +16,13 @@ void main()
 const GLchar *FRAGMENT_SOURCE = R"glsl(
 #version 330 core
 out vec4 FragColor;
-
+uniform vec4 globalColor;
 in vec4 vertexColor;
 
 void main()
 {
 	FragColor = vertexColor;
+	FragColor = globalColor;
 }
 )glsl";
 
@@ -106,7 +107,14 @@ int main(int argc, char* args[])
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		
+		float ticks = SDL_GetTicks() / 1000.0f;
+		
+		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
+		
 		glUseProgram(shaderProgram);
+		
+		glUniform4f(vertexColorLocation, 0.5f, sin(ticks), 0.0f, 1.0f);
+		
 		glBindVertexArray(vao);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		
