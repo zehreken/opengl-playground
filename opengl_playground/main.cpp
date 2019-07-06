@@ -73,6 +73,8 @@ int main(int argc, char* args[])
 	
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
+    
+    Shader shader("/Users/zehreken/Development/opengl_playground/opengl_playground/vertex.txt", "/Users/zehreken/Development/opengl_playground/opengl_playground/fragment.txt");
 	
 	float vertices[] =
 	{

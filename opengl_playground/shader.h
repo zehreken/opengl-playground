@@ -44,7 +44,7 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath)
 	}
 	catch (std::ifstream::failure e)
 	{
-		std::cout << "Error: " << e.code() << "std::endl";
+		std::cout << "Error: " << e.code() << std::endl;
 	}
 	
 	const char *vShaderCode = vertexCode.c_str();
