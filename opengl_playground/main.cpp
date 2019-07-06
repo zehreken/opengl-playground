@@ -1,5 +1,6 @@
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
+#include "shader.h"
 
 const GLchar *VERTEX_SOURCE = R"glsl(
 #version 330 core

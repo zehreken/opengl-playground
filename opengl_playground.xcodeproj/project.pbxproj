@@ -28,6 +28,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30021E3622D108D500849E90 /* shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
 		3002B3BC22CE7D42003976CF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3003EF9B22C788290053B769 /* not_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = not_main.cpp; sourceTree = "<group>"; };
 		3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 			children = (
 				3003EF9B22C788290053B769 /* not_main.cpp */,
 				3002B3BC22CE7D42003976CF /* main.cpp */,
+				30021E3622D108D500849E90 /* shader.h */,
 			);
 			path = opengl_playground;
 			sourceTree = "<group>";
