@@ -113,11 +113,13 @@ int main(int argc, char* args[])
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		
-//		float ticks = SDL_GetTicks() / 1000.0f;
+		float ticks = SDL_GetTicks() / 1000.0f;
+		shader.setFloat("offset", sin(ticks));
 		
 //		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
 		
-		glUseProgram(shaderProgram);
+//		glUseProgram(shaderProgram);
+		shader.use();
 		
 //		glUniform4f(vertexColorLocation, 0.5f, sin(ticks), 0.0f, 1.0f);
 		
