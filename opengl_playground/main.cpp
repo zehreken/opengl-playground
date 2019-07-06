@@ -4,12 +4,13 @@
 const GLchar *VERTEX_SOURCE = R"glsl(
 #version 330 core
 layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
 out vec4 vertexColor;
 
 void main()
 {
 	gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
-	vertexColor = vec4(0.5, 0.0, 0.0, 0.0);
+	vertexColor = vec4(aColor, 1.0);
 }
 )glsl";
 
@@ -22,7 +23,7 @@ in vec4 vertexColor;
 void main()
 {
 	FragColor = vertexColor;
-	FragColor = globalColor;
+//	FragColor = globalColor;
 }
 )glsl";
 
@@ -74,9 +75,9 @@ int main(int argc, char* args[])
 	
 	float vertices[] =
 	{
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f, 0.5f, 0.0f
+		-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
+		0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
+		0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f
 	};
 	
 	unsigned int vao;
@@ -88,8 +89,10 @@ int main(int argc, char* args[])
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
@@ -107,13 +110,13 @@ int main(int argc, char* args[])
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		
-		float ticks = SDL_GetTicks() / 1000.0f;
+//		float ticks = SDL_GetTicks() / 1000.0f;
 		
-		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
+//		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
 		
 		glUseProgram(shaderProgram);
 		
-		glUniform4f(vertexColorLocation, 0.5f, sin(ticks), 0.0f, 1.0f);
+//		glUniform4f(vertexColorLocation, 0.5f, sin(ticks), 0.0f, 1.0f);
 		
 		glBindVertexArray(vao);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
