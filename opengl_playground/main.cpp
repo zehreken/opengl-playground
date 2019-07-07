@@ -52,7 +52,8 @@ int main(int argc, char* args[])
 	unsigned int texture;
 	glGenTextures(1, &texture);
 	glBindTexture(GL_TEXTURE_2D, texture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, surface->w, surface->h, 0, GL_RGB, GL_UNSIGNED_BYTE, surface->pixels);
+	
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface->w, surface->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
 	glGenerateMipmap(GL_TEXTURE_2D);
 	
 	SDL_FreeSurface(surface);
@@ -61,11 +62,11 @@ int main(int argc, char* args[])
 	float vertices[] =
 	{
 		// top right
-		0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+		0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
 		// bottom right
 		0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
 		// bottom left
-		-0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
 		// top left
 		-0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f
 	};
@@ -114,7 +115,7 @@ int main(int argc, char* args[])
 		glClear(GL_COLOR_BUFFER_BIT);
 		
 		float ticks = SDL_GetTicks() / 1000.0f;
-		shader.setFloat("offset", sin(ticks));
+//		shader.setFloat("offset", sin(ticks));
 		
 //		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
 		
