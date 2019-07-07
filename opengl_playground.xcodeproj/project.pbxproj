@@ -13,6 +13,7 @@
 		3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076922C425E40058A4AF /* GLUT.framework */; };
 		3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076B22C425F40058A4AF /* OpenGL.framework */; };
 		300E655222C3F10A00952BC7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300E655122C3F10A00952BC7 /* SDL2.framework */; };
+		30A3068122D27CB000F0F732 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A3068022D27CB000F0F732 /* SDL2_image.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 		3009076B22C425F40058A4AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		300E654622C3EE4D00952BC7 /* opengl_playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl_playground; sourceTree = BUILT_PRODUCTS_DIR; };
 		300E655122C3F10A00952BC7 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		30A3068022D27CB000F0F732 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30A3068122D27CB000F0F732 /* SDL2_image.framework in Frameworks */,
 				3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */,
 				3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */,
 				3009076822C41EEF0058A4AF /* libGLEW.2.1.0.dylib in Frameworks */,
@@ -89,6 +92,7 @@
 		300E655022C3F10A00952BC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30A3068022D27CB000F0F732 /* SDL2_image.framework */,
 				3009076B22C425F40058A4AF /* OpenGL.framework */,
 				3009076922C425E40058A4AF /* GLUT.framework */,
 				3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */,
