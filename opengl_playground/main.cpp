@@ -59,16 +59,18 @@ int main(int argc, char* args[])
 	SDL_FreeSurface(surface);
 	
 	// x, y, z, r, g, b, u, v
+	// UV coordinates are flipped on y-axis because
+	// Most file formats have topdown indexing but OpenGL has the opposite
 	float vertices[] =
 	{
 		// top right
-		0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+		0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
 		// bottom right
-		0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+		0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
 		// bottom left
-		-0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+		-0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
 		// top left
-		-0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f
+		-0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f
 	};
 	
 	unsigned int indices[] =
