@@ -56,6 +56,15 @@ int main(int argc, char* args[])
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface->w, surface->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
 	glGenerateMipmap(GL_TEXTURE_2D);
 	
+	// Second texture
+	surface = IMG_Load("/Users/zehreken/Development/opengl_playground/opengl_playground/grass.png");
+	unsigned int texture1;
+	glGenTextures(1, &texture1);
+	glBindTexture(GL_TEXTURE_2D, texture1);
+	
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface->w, surface->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
+	glGenerateMipmap(GL_TEXTURE_2D);
+	
 	SDL_FreeSurface(surface);
 	
 	// x, y, z, r, g, b, u, v
@@ -104,6 +113,10 @@ int main(int argc, char* args[])
 	glBindVertexArray(0);
 	// ===============
 	
+	shader.use(); // don't forget to activate the shader before setting uniforms!
+	glUniform1i(glGetUniformLocation(shader.ID, "texture0"), 0); // set it manually
+	shader.setInt("texture1", 1); // or with shader class
+	
 	SDL_Event event;
 	while (true) // Render loop
 	{
@@ -121,8 +134,13 @@ int main(int argc, char* args[])
 		
 //		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
 		
+		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture);
+		
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, texture1);
 //		glUseProgram(shaderProgram);
+		
 		shader.use();
 		
 //		glUniform4f(vertexColorLocation, 0.5f, sin(ticks), 0.0f, 1.0f);
