@@ -5,6 +5,7 @@ in vec2 TexCoord;
 
 uniform sampler2D texture0;
 uniform sampler2D texture1;
+uniform float lever = 0.5;
 
 void main()
 {
@@ -12,5 +13,5 @@ void main()
 	// FragColor = globalColor;
 	// FragColor = vec4(1.0f);
 	// FragColor = texture(texture0, TexCoord) * vec4(vertexColor, 1.0);
-	FragColor = mix(texture(texture0, TexCoord), texture(texture1, TexCoord), 0.2);
+	FragColor = mix(texture(texture0, TexCoord), texture(texture1, TexCoord), lever);
 }
