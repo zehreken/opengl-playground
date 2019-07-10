@@ -144,16 +144,17 @@ int main(int argc, char* args[])
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		
-		float ticks = SDL_GetTicks() / 10.0f;
+		float ticks = SDL_GetTicks() / 1000.0f;
 		shader.setFloat("lever", sin(ticks));
 //		shader.setFloat("offset", sin(ticks));
 		
 //		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
 		
 		glm::mat4 trans = glm::mat4(1.0f);
-		trans = glm::rotate(trans, glm::radians(ticks), glm::vec3(0.0f, 0.0f, 1.0f));
-		trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+		trans = glm::rotate(trans, glm::radians(ticks * 10), glm::vec3(0.0f, 0.0f, 1.0f));
+		trans = glm::translate(trans, glm::vec3(0.0f, -0.0f, 0.0f));
 		unsigned int transformLoc = glGetUniformLocation(shader.ID, "transform");
+		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 		
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture);
@@ -171,8 +172,8 @@ int main(int argc, char* args[])
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		
 		glm::mat4 trans2 = glm::mat4(1.0f);
-		trans2 = glm::rotate(trans2, glm::radians(ticks * 4), glm::vec3(0.0f, 0.0f, 1.0f));
-		trans2 = glm::translate(trans2, glm::vec3(0.5f, -0.5f, 0.0f));
+//		trans2 = glm::rotate(trans2, glm::radians(ticks), glm::vec3(0.0f, 0.0f, 1.0f));
+		trans2 = glm::scale(trans2, glm::vec3(sin(ticks), sin(ticks), 0.0f));
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans2));
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
