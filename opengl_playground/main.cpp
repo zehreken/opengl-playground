@@ -151,7 +151,7 @@ int main(int argc, char* args[])
 //		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
 		
 		glm::mat4 trans = glm::mat4(1.0f);
-		trans = glm::rotate(trans, glm::radians(ticks * 10), glm::vec3(0.0f, 0.0f, 1.0f));
+		trans = glm::rotate(trans, glm::radians(ticks * 10), glm::vec3(1.0f, 0.0f, 0.0f));
 		trans = glm::translate(trans, glm::vec3(0.0f, -0.0f, 0.0f));
 		unsigned int transformLoc = glGetUniformLocation(shader.ID, "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
@@ -163,7 +163,24 @@ int main(int argc, char* args[])
 		glBindTexture(GL_TEXTURE_2D, texture1);
 //		glUseProgram(shaderProgram);
 		
+		
 		shader.use();
+		
+		glm::mat4 model = glm::mat4(1.0f);
+		model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		
+		glm::mat4 view = glm::mat4(1.0f);
+		view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+		
+		glm::mat4 projection = glm::perspective(glm::radians(45.0f), 800.0f / 600, 0.1f, 100.0f);
+		unsigned int modelLoc = glGetUniformLocation(shader.ID, "model");
+		unsigned int viewLoc  = glGetUniformLocation(shader.ID, "view");
+		unsigned int projLoc  = glGetUniformLocation(shader.ID, "projection");
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		// note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
 		
 //		glUniform4f(vertexColorLocation, 0.5f, sin(ticks), 0.0f, 1.0f);
 		
