@@ -9,6 +9,7 @@
 class Shader
 {
 public:
+	Shader();
 	unsigned int ID; // Program id
 	Shader(const GLchar *vertexPath, const GLchar *fragmentPath); // Reads and builds the shader
 	void use();
@@ -17,7 +18,9 @@ public:
 	void setFloat(const std::string &name, float value) const;
 };
 
-Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath)
+inline Shader::Shader() { };
+
+inline Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath)
 {
 	// Read shader files
 	std::string vertexCode;
@@ -93,22 +96,22 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath)
 	glDeleteShader(fragment);
 }
 
-void Shader::use()
+inline void Shader::use()
 {
 	glUseProgram(ID);
 }
 
-void Shader::setBool(const std::string &name, bool value) const
+inline void Shader::setBool(const std::string &name, bool value) const
 {
 	glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
 }
 
-void Shader::setInt(const std::string &name, int value) const
+inline void Shader::setInt(const std::string &name, int value) const
 {
 	glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
 }
 
-void Shader::setFloat(const std::string &name, float value) const
+inline void Shader::setFloat(const std::string &name, float value) const
 {
 	glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
 }

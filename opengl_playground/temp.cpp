@@ -1,10 +1,11 @@
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
+#include "cubes.hpp"
 
 const int WIDTH = 800;
 const int HEIGHT = 600;
 
-int main_t(int argc, char* args[])
+int main(int argc, char* args[])
 {
 	SDL_Init(SDL_INIT_VIDEO);
 	
@@ -24,6 +25,8 @@ int main_t(int argc, char* args[])
 	printf("max attribute: %d\n", attribCount);
 	// ==============================================
 	
+	Cubes cubes;
+	
 	SDL_Event event;
 	while (true) // Render loop
 	{
@@ -32,6 +35,14 @@ int main_t(int argc, char* args[])
 			if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
 				break;
 		}
+		
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+		
+		cubes.update();
+		
+		// Always the last statement in the render loop
+		SDL_GL_SwapWindow(window);
 	}
 	
 	SDL_GL_DeleteContext(context);

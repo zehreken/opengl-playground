@@ -6,7 +6,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-int main(int argc, char* args[])
+int main_(int argc, char* args[])
 {
 	SDL_Init(SDL_INIT_VIDEO);
 	

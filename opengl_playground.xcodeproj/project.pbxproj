@@ -13,6 +13,7 @@
 		3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076922C425E40058A4AF /* GLUT.framework */; };
 		3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076B22C425F40058A4AF /* OpenGL.framework */; };
 		300C241F22D900C0002E535D /* temp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300C241E22D900C0002E535D /* temp.cpp */; };
+		300C242222D91671002E535D /* cubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300C242022D91671002E535D /* cubes.cpp */; };
 		300E655222C3F10A00952BC7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300E655122C3F10A00952BC7 /* SDL2.framework */; };
 		30A3068122D27CB000F0F732 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A3068022D27CB000F0F732 /* SDL2_image.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,8 @@
 		3009076922C425E40058A4AF /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		3009076B22C425F40058A4AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		300C241E22D900C0002E535D /* temp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = temp.cpp; sourceTree = "<group>"; };
+		300C242022D91671002E535D /* cubes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cubes.cpp; sourceTree = "<group>"; };
+		300C242122D91671002E535D /* cubes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cubes.hpp; sourceTree = "<group>"; };
 		300E654622C3EE4D00952BC7 /* opengl_playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl_playground; sourceTree = BUILT_PRODUCTS_DIR; };
 		300E655122C3F10A00952BC7 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		30A3068022D27CB000F0F732 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				30021E3722D1255300849E90 /* vertex.txt */,
 				30021E3922D1259200849E90 /* fragment.txt */,
 				300C241E22D900C0002E535D /* temp.cpp */,
+				300C242022D91671002E535D /* cubes.cpp */,
+				300C242122D91671002E535D /* cubes.hpp */,
 			);
 			path = opengl_playground;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300C242222D91671002E535D /* cubes.cpp in Sources */,
 				3002B3BD22CE7D42003976CF /* main.cpp in Sources */,
 				3003EF9C22C788290053B769 /* not_main.cpp in Sources */,
 				300C241F22D900C0002E535D /* temp.cpp in Sources */,
