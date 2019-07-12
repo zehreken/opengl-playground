@@ -145,14 +145,14 @@ int main(int argc, char* args[])
 		glClear(GL_COLOR_BUFFER_BIT);
 		
 		float ticks = SDL_GetTicks() / 1000.0f;
-		shader.setFloat("lever", sin(ticks));
+		shader.setFloat("lever", 0);
 //		shader.setFloat("offset", sin(ticks));
 		
 //		int vertexColorLocation = glGetUniformLocation(shaderProgram, "globalColor");
 		
 		glm::mat4 trans = glm::mat4(1.0f);
-		trans = glm::rotate(trans, glm::radians(ticks * 10), glm::vec3(1.0f, 0.0f, 0.0f));
-		trans = glm::translate(trans, glm::vec3(0.0f, -0.0f, 0.0f));
+		trans = glm::translate(trans, glm::vec3(0.0f, 0.0f, 0.0f));
+		trans = glm::rotate(trans, glm::radians(ticks * 100), glm::vec3(1.0f, 0.0f, 0.0f));
 		unsigned int transformLoc = glGetUniformLocation(shader.ID, "transform");
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
 		
