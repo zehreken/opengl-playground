@@ -6,9 +6,9 @@ Cubes::Cubes()
 		"/Users/zehreken/Development/opengl_playground/opengl_playground/fragment.txt"};
 	
 	SDL_Surface *surface = IMG_Load("/Users/zehreken/Development/opengl_playground/opengl_playground/uv_map.jpg");
-	unsigned int texture0;
-	glGenTextures(1, &texture0);
-	glBindTexture(GL_TEXTURE_2D, texture0);
+//	unsigned int texture0;
+	glGenTextures(1, &_texture0);
+	glBindTexture(GL_TEXTURE_2D, _texture0);
 	
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -20,9 +20,9 @@ Cubes::Cubes()
 	glGenerateMipmap(GL_TEXTURE_2D);
 	
 	surface = IMG_Load("/Users/zehreken/Development/opengl_playground/opengl_playground/grass.png");
-	unsigned int texture1;
-	glGenTextures(1, &texture1);
-	glBindTexture(GL_TEXTURE_2D, texture1);
+//	unsigned int texture1;
+	glGenTextures(1, &_texture1);
+	glBindTexture(GL_TEXTURE_2D, _texture1);
 	
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -85,7 +85,15 @@ Cubes::Cubes()
 
 void Cubes::update()
 {
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, _texture0);
+	
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, _texture1);
+	
+	_shader.use();
 	glBindVertexArray(_vao);
 	//		glDrawArrays(GL_TRIANGLES, 0, 3);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
 }
