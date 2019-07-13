@@ -8,37 +8,6 @@ RotatingPlane::RotatingPlane()
 	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/rotatingPlane/vertex1.txt",
 		"/Users/zehreken/Development/opengl_playground/opengl_playground/rotatingPlane/fragment1.txt"};
 	
-	SDL_Surface *surface = IMG_Load("/Users/zehreken/Development/opengl_playground/opengl_playground/uv_map.jpg");
-	//	unsigned int texture0;
-	glGenTextures(1, &_texture0);
-	glBindTexture(GL_TEXTURE_2D, _texture0);
-	
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface->w, surface->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
-	glGenerateMipmap(GL_TEXTURE_2D);
-	
-	surface = IMG_Load("/Users/zehreken/Development/opengl_playground/opengl_playground/grass.png");
-	//	unsigned int texture1;
-	glGenTextures(1, &_texture1);
-	glBindTexture(GL_TEXTURE_2D, _texture1);
-	
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface->w, surface->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
-	glGenerateMipmap(GL_TEXTURE_2D);
-	
-	// Surface is not needed anymore
-	SDL_FreeSurface(surface);
-	
 	float vertices[] =
 	{
 		// top right
@@ -80,20 +49,10 @@ RotatingPlane::RotatingPlane()
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-	
-	_shader.use(); // don't forget to activate the shader before setting uniforms!
-	glUniform1i(glGetUniformLocation(_shader.ID, "texture0"), 0); // set it manually
-	_shader.setInt("texture1", 1); // or with shader class
 }
 
 void RotatingPlane::update()
 {
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, _texture0);
-	
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, _texture1);
-	
 	_shader.use();
 	
 	glm::mat4 model = glm::mat4(1.0f);
@@ -114,5 +73,5 @@ void RotatingPlane::update()
 	
 	glBindVertexArray(_vao);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-	//	glBindVertexArray(0);
+	glBindVertexArray(0);
 }
