@@ -27,7 +27,7 @@ int main(int argc, char* args[])
 	// ==============================================
 	
 	RotatingPlane rotatingPlane;
-	Cubes cubes;
+//	Cubes cubes;
 	
 	SDL_Event event;
 	while (true) // Render loop

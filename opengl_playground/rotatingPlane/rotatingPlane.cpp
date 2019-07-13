@@ -5,8 +5,8 @@
 
 RotatingPlane::RotatingPlane()
 {
-	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/vertex.txt",
-		"/Users/zehreken/Development/opengl_playground/opengl_playground/fragment.txt"};
+	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/rotatingPlane/vertex1.txt",
+		"/Users/zehreken/Development/opengl_playground/opengl_playground/rotatingPlane/fragment1.txt"};
 	
 	SDL_Surface *surface = IMG_Load("/Users/zehreken/Development/opengl_playground/opengl_playground/uv_map.jpg");
 	//	unsigned int texture0;

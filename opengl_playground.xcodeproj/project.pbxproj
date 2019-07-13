@@ -42,6 +42,8 @@
 		3009076B22C425F40058A4AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		300A611522DA692B000DD561 /* rotatingPlane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rotatingPlane.cpp; sourceTree = "<group>"; };
 		300A611622DA692B000DD561 /* rotatingPlane.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rotatingPlane.hpp; sourceTree = "<group>"; };
+		300A611A22DA6DFA000DD561 /* vertex1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex1.txt; sourceTree = "<group>"; };
+		300A611B22DA6E11000DD561 /* fragment1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = fragment1.txt; sourceTree = "<group>"; };
 		300C241E22D900C0002E535D /* temp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = temp.cpp; sourceTree = "<group>"; };
 		300C242022D91671002E535D /* cubes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cubes.cpp; sourceTree = "<group>"; };
 		300C242122D91671002E535D /* cubes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cubes.hpp; sourceTree = "<group>"; };
@@ -66,6 +68,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300A611822DA6D05000DD561 /* cubes */ = {
+			isa = PBXGroup;
+			children = (
+				300C242022D91671002E535D /* cubes.cpp */,
+				300C242122D91671002E535D /* cubes.hpp */,
+			);
+			path = cubes;
+			sourceTree = "<group>";
+		};
+		300A611922DA6D28000DD561 /* rotatingPlane */ = {
+			isa = PBXGroup;
+			children = (
+				300A611522DA692B000DD561 /* rotatingPlane.cpp */,
+				300A611622DA692B000DD561 /* rotatingPlane.hpp */,
+				300A611A22DA6DFA000DD561 /* vertex1.txt */,
+				300A611B22DA6E11000DD561 /* fragment1.txt */,
+			);
+			path = rotatingPlane;
+			sourceTree = "<group>";
+		};
 		300E653D22C3EE4D00952BC7 = {
 			isa = PBXGroup;
 			children = (
@@ -88,16 +110,14 @@
 		300E654822C3EE4D00952BC7 /* opengl_playground */ = {
 			isa = PBXGroup;
 			children = (
+				300A611922DA6D28000DD561 /* rotatingPlane */,
+				300A611822DA6D05000DD561 /* cubes */,
 				3003EF9B22C788290053B769 /* not_main.cpp */,
 				3002B3BC22CE7D42003976CF /* main.cpp */,
 				30021E3622D108D500849E90 /* shader.h */,
 				30021E3722D1255300849E90 /* vertex.txt */,
 				30021E3922D1259200849E90 /* fragment.txt */,
 				300C241E22D900C0002E535D /* temp.cpp */,
-				300C242022D91671002E535D /* cubes.cpp */,
-				300C242122D91671002E535D /* cubes.hpp */,
-				300A611522DA692B000DD561 /* rotatingPlane.cpp */,
-				300A611622DA692B000DD561 /* rotatingPlane.hpp */,
 			);
 			path = opengl_playground;
 			sourceTree = "<group>";
