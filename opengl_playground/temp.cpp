@@ -26,7 +26,7 @@ int main(int argc, char* args[])
 	printf("max attribute: %d\n", attribCount);
 	// ==============================================
 	
-//	RotatingPlane rotatingPlane;
+	RotatingPlane rotatingPlane;
 	Cubes cubes;
 	
 	SDL_Event event;

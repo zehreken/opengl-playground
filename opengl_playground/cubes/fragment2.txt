@@ -4,7 +4,7 @@ in vec2 TexCoord;
 
 uniform sampler2D texture0;
 uniform sampler2D texture1;
-uniform float lever = 0.5;
+uniform float lever = 0.0;
 
 void main()
 {

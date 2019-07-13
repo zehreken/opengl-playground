@@ -12,8 +12,6 @@ public:
 	void update();
 private:
 	Shader _shader;
-	unsigned int _texture0;
-	unsigned int _texture1;
 	unsigned int _vao;
 	unsigned int _vbo;
 	unsigned int _ebo;
