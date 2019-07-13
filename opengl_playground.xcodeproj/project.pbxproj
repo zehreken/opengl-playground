@@ -12,6 +12,7 @@
 		3009076822C41EEF0058A4AF /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */; };
 		3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076922C425E40058A4AF /* GLUT.framework */; };
 		3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076B22C425F40058A4AF /* OpenGL.framework */; };
+		300A611722DA692B000DD561 /* rotatingPlane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300A611522DA692B000DD561 /* rotatingPlane.cpp */; };
 		300C241F22D900C0002E535D /* temp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300C241E22D900C0002E535D /* temp.cpp */; };
 		300C242222D91671002E535D /* cubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300C242022D91671002E535D /* cubes.cpp */; };
 		300E655222C3F10A00952BC7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300E655122C3F10A00952BC7 /* SDL2.framework */; };
@@ -39,6 +40,8 @@
 		3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		3009076922C425E40058A4AF /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		3009076B22C425F40058A4AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		300A611522DA692B000DD561 /* rotatingPlane.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rotatingPlane.cpp; sourceTree = "<group>"; };
+		300A611622DA692B000DD561 /* rotatingPlane.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rotatingPlane.hpp; sourceTree = "<group>"; };
 		300C241E22D900C0002E535D /* temp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = temp.cpp; sourceTree = "<group>"; };
 		300C242022D91671002E535D /* cubes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cubes.cpp; sourceTree = "<group>"; };
 		300C242122D91671002E535D /* cubes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cubes.hpp; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				300C241E22D900C0002E535D /* temp.cpp */,
 				300C242022D91671002E535D /* cubes.cpp */,
 				300C242122D91671002E535D /* cubes.hpp */,
+				300A611522DA692B000DD561 /* rotatingPlane.cpp */,
+				300A611622DA692B000DD561 /* rotatingPlane.hpp */,
 			);
 			path = opengl_playground;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300A611722DA692B000DD561 /* rotatingPlane.cpp in Sources */,
 				300C242222D91671002E535D /* cubes.cpp in Sources */,
 				3002B3BD22CE7D42003976CF /* main.cpp in Sources */,
 				3003EF9C22C788290053B769 /* not_main.cpp in Sources */,

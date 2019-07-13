@@ -1,5 +1,6 @@
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
+#include "rotatingPlane.hpp"
 #include "cubes.hpp"
 
 const int WIDTH = 800;
@@ -25,6 +26,7 @@ int main(int argc, char* args[])
 	printf("max attribute: %d\n", attribCount);
 	// ==============================================
 	
+	RotatingPlane rotatingPlane;
 	Cubes cubes;
 	
 	SDL_Event event;
@@ -39,7 +41,8 @@ int main(int argc, char* args[])
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		
-		cubes.update();
+		rotatingPlane.update();
+//		cubes.update();
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);
