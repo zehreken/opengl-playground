@@ -26,8 +26,8 @@ int main(int argc, char* args[])
 	printf("max attribute: %d\n", attribCount);
 	// ==============================================
 	
-	RotatingPlane rotatingPlane;
-//	Cubes cubes;
+//	RotatingPlane rotatingPlane;
+	Cubes cubes;
 	
 	SDL_Event event;
 	while (true) // Render loop
@@ -41,8 +41,8 @@ int main(int argc, char* args[])
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		
-		rotatingPlane.update();
-//		cubes.update();
+//		rotatingPlane.update();
+		cubes.update();
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);

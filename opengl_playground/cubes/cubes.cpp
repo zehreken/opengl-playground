@@ -5,8 +5,8 @@
 
 Cubes::Cubes()
 {
-	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/vertex.txt",
-		"/Users/zehreken/Development/opengl_playground/opengl_playground/fragment.txt"};
+	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/cubes/vertex2.txt",
+		"/Users/zehreken/Development/opengl_playground/opengl_playground/cubes/fragment2.txt"};
 	
 	SDL_Surface *surface = IMG_Load("/Users/zehreken/Development/opengl_playground/opengl_playground/uv_map.jpg");
 //	unsigned int texture0;
