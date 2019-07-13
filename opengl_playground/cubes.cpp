@@ -1,4 +1,7 @@
 #include "cubes.hpp"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 Cubes::Cubes()
 {
@@ -92,8 +95,24 @@ void Cubes::update()
 	glBindTexture(GL_TEXTURE_2D, _texture1);
 	
 	_shader.use();
+	
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::rotate(model, glm::radians((float)SDL_GetTicks() / 4.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	
+	glm::mat4 view = glm::mat4(1.0f);
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	
+	glm::mat4 projection;
+	projection = glm::perspective(glm::radians(45.0f), (float)800 / (float)600, 0.1f, 100.0f);
+	
+	unsigned int modelLoc = glGetUniformLocation(_shader.ID, "model");
+	unsigned int viewLoc  = glGetUniformLocation(_shader.ID, "view");
+	unsigned int projLoc  = glGetUniformLocation(_shader.ID, "projection");
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+	
 	glBindVertexArray(_vao);
-	//		glDrawArrays(GL_TRIANGLES, 0, 3);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-	glBindVertexArray(0);
+//	glBindVertexArray(0);
 }
