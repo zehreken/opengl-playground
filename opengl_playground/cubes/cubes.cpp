@@ -126,6 +126,8 @@ Cubes::Cubes()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 	
+	glEnable(GL_DEPTH_TEST);
+	
 	_shader.use(); // don't forget to activate the shader before setting uniforms!
 	glUniform1i(glGetUniformLocation(_shader.ID, "texture0"), 0); // set it manually
 	_shader.setInt("texture1", 1); // or with shader class
