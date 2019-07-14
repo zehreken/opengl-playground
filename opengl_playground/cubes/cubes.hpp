@@ -16,7 +16,6 @@ private:
 	unsigned int _texture1;
 	unsigned int _vao;
 	unsigned int _vbo;
-	unsigned int _ebo;
 };
 
 #endif /* cubes_hpp */
