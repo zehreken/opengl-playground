@@ -134,7 +134,7 @@ void Cubes::update()
 	model = glm::rotate(model, glm::radians((float)SDL_GetTicks() / 10.0f), glm::vec3(1.0f, 1.0f, 0.0f));
 	
 	glm::mat4 view = glm::mat4(1.0f);
-	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -(float)SDL_GetTicks() / 1000.0f));
 	
 	glm::mat4 projection;
 	projection = glm::perspective(glm::radians(45.0f), (float)800 / (float)600, 0.1f, 100.0f);

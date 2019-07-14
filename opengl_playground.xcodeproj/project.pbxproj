@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3002B3BD22CE7D42003976CF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3002B3BC22CE7D42003976CF /* main.cpp */; };
+		300814E922DBCD090040095E /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300814E722DBCD090040095E /* camera.cpp */; };
 		3009076822C41EEF0058A4AF /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */; };
 		3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076922C425E40058A4AF /* GLUT.framework */; };
 		3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076B22C425F40058A4AF /* OpenGL.framework */; };
@@ -33,6 +34,8 @@
 /* Begin PBXFileReference section */
 		30021E3622D108D500849E90 /* shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
 		3002B3BC22CE7D42003976CF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		300814E722DBCD090040095E /* camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
+		300814E822DBCD090040095E /* camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = camera.hpp; sourceTree = "<group>"; };
 		3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		3009076922C425E40058A4AF /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		3009076B22C425F40058A4AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -66,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		300814E622DBCCF20040095E /* camera */ = {
+			isa = PBXGroup;
+			children = (
+				300814E722DBCD090040095E /* camera.cpp */,
+				300814E822DBCD090040095E /* camera.hpp */,
+			);
+			path = camera;
+			sourceTree = "<group>";
+		};
 		300A611822DA6D05000DD561 /* cubes */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +122,7 @@
 		300E654822C3EE4D00952BC7 /* opengl_playground */ = {
 			isa = PBXGroup;
 			children = (
+				300814E622DBCCF20040095E /* camera */,
 				300A611922DA6D28000DD561 /* rotatingPlane */,
 				300A611822DA6D05000DD561 /* cubes */,
 				3002B3BC22CE7D42003976CF /* main.cpp */,
@@ -191,6 +204,7 @@
 				300C242222D91671002E535D /* cubes.cpp in Sources */,
 				3002B3BD22CE7D42003976CF /* main.cpp in Sources */,
 				300C241F22D900C0002E535D /* temp.cpp in Sources */,
+				300814E922DBCD090040095E /* camera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
