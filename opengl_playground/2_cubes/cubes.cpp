@@ -19,8 +19,8 @@ static glm::vec3 cubePositions[] =
 
 Cubes::Cubes()
 {
-	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/cubes/vertex2.txt",
-		"/Users/zehreken/Development/opengl_playground/opengl_playground/cubes/fragment2.txt"};
+	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/2_cubes/vertex2.txt",
+		"/Users/zehreken/Development/opengl_playground/opengl_playground/2_cubes/fragment2.txt"};
 	
 	SDL_Surface *surface = IMG_Load("/Users/zehreken/Development/opengl_playground/opengl_playground/uv_map.jpg");
 //	unsigned int texture0;

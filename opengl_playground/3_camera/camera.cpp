@@ -2,8 +2,8 @@
 
 Camera::Camera()
 {
-	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/camera/vertexe.txt",
-		"/Users/zehreken/Development/opengl_playground/opengl_playground/camera/fragmente.txt"};
+	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/vertexe.txt",
+		"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/fragmente.txt"};
 	
 	glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 	

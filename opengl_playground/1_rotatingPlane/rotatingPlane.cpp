@@ -5,8 +5,8 @@
 
 RotatingPlane::RotatingPlane()
 {
-	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/rotatingPlane/vertex1.txt",
-		"/Users/zehreken/Development/opengl_playground/opengl_playground/rotatingPlane/fragment1.txt"};
+	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/1_rotatingPlane/vertex1.txt",
+		"/Users/zehreken/Development/opengl_playground/opengl_playground/1_rotatingPlane/fragment1.txt"};
 	
 	float vertices[] =
 	{

@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include "rotatingPlane.hpp"
 #include "cubes.hpp"
-#include "camera/camera.hpp"
+#include "3_camera/camera.hpp"
 
 const int WIDTH = 800;
 const int HEIGHT = 600;
@@ -29,7 +29,7 @@ int main(int argc, char* args[])
 	
 	RotatingPlane rotatingPlane;
 	Cubes cubes;
-	Camera camera;
+//	Camera camera;
 	
 	SDL_Event event;
 	while (true) // Render loop
@@ -45,7 +45,7 @@ int main(int argc, char* args[])
 		
 //		rotatingPlane.update();
 		cubes.update();
-		camera.update();
+//		camera.update();
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);
