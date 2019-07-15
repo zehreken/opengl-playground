@@ -29,7 +29,7 @@ int main(int argc, char* args[])
 	
 	RotatingPlane rotatingPlane;
 	Cubes cubes;
-//	Camera camera;
+	Camera camera;
 	
 	SDL_Event event;
 	while (true) // Render loop
@@ -44,8 +44,8 @@ int main(int argc, char* args[])
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 //		rotatingPlane.update();
-		cubes.update();
-//		camera.update();
+//		cubes.update();
+		camera.update();
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);

@@ -1,9 +1,10 @@
 #include "camera.hpp"
+#include <SDL2/SDL.h>
 
 Camera::Camera()
 {
-	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/vertexe.txt",
-		"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/fragmente.txt"};
+	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/vertex3.txt",
+		"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/fragment3.txt"};
 	
 	glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 	
@@ -64,4 +65,30 @@ void Camera::update()
 	_shader.use();
 	
 	glm::mat4 model = glm::mat4(1.0f);
+	
+	float radius = 10.0f;
+	float cameraX = sin(SDL_GetTicks() / 1000.0f) * radius;
+	float cameraZ = cos(SDL_GetTicks() / 1000.0f) * radius;
+	_view = glm::lookAt(glm::vec3(cameraX, 0.0f, cameraZ),
+						glm::vec3(0.0f, 0.0f, 0.0f),
+						glm::vec3(0.0f, 1.0f, 0.0f));
+	
+	glm::mat4 projection = glm::perspective(45.0f, (float)800 / (float)600, 0.1f, 100.0f);
+	
+	unsigned int modelLoc = glGetUniformLocation(_shader.ID, "model");
+	unsigned int viewLoc  = glGetUniformLocation(_shader.ID, "view");
+	unsigned int projLoc  = glGetUniformLocation(_shader.ID, "projection");
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(_view));
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
+	
+	glBindVertexArray(_vao);
+	for (int i = 0; i < 20; i++)
+	{
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, i * 0.0f, i * 1.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	}
+	glBindVertexArray(0);
 }

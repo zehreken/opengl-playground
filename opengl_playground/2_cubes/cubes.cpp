@@ -147,7 +147,6 @@ void Cubes::update()
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 	
 	glBindVertexArray(_vao);
-//	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	for (int i = 0; i < 10; i++)
 	{
 		model = glm::mat4(1.0f);
