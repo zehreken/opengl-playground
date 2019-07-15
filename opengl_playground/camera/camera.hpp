@@ -1,6 +1,12 @@
 #ifndef camera_hpp
 #define camera_hpp
 
-#include <stdio.h>
+class Camera
+{
+public:
+	Camera();
+	void update();
+private:
+};
 
 #endif /* camera_hpp */
