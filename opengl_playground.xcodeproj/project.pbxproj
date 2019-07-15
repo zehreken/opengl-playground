@@ -71,7 +71,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		300814E622DBCCF20040095E /* camera */ = {
+		300814E622DBCCF20040095E /* 3_camera */ = {
 			isa = PBXGroup;
 			children = (
 				300814E722DBCD090040095E /* camera.cpp */,
@@ -79,10 +79,10 @@
 				30FEA13E22DCEFFB001D782D /* vertex3.txt */,
 				30FEA13F22DCF00B001D782D /* fragment3.txt */,
 			);
-			path = camera;
+			path = 3_camera;
 			sourceTree = "<group>";
 		};
-		300A611822DA6D05000DD561 /* cubes */ = {
+		300A611822DA6D05000DD561 /* 2_cubes */ = {
 			isa = PBXGroup;
 			children = (
 				300C242022D91671002E535D /* cubes.cpp */,
@@ -90,10 +90,10 @@
 				300A611C22DA75C0000DD561 /* vertex2.txt */,
 				300A611D22DA75CC000DD561 /* fragment2.txt */,
 			);
-			path = cubes;
+			path = 2_cubes;
 			sourceTree = "<group>";
 		};
-		300A611922DA6D28000DD561 /* rotatingPlane */ = {
+		300A611922DA6D28000DD561 /* 1_rotatingPlane */ = {
 			isa = PBXGroup;
 			children = (
 				300A611522DA692B000DD561 /* rotatingPlane.cpp */,
@@ -101,7 +101,7 @@
 				300A611A22DA6DFA000DD561 /* vertex1.txt */,
 				300A611B22DA6E11000DD561 /* fragment1.txt */,
 			);
-			path = rotatingPlane;
+			path = 1_rotatingPlane;
 			sourceTree = "<group>";
 		};
 		300E653D22C3EE4D00952BC7 = {
@@ -126,9 +126,9 @@
 		300E654822C3EE4D00952BC7 /* opengl_playground */ = {
 			isa = PBXGroup;
 			children = (
-				300814E622DBCCF20040095E /* camera */,
-				300A611922DA6D28000DD561 /* rotatingPlane */,
-				300A611822DA6D05000DD561 /* cubes */,
+				300814E622DBCCF20040095E /* 3_camera */,
+				300A611922DA6D28000DD561 /* 1_rotatingPlane */,
+				300A611822DA6D05000DD561 /* 2_cubes */,
 				3002B3BC22CE7D42003976CF /* main.cpp */,
 				30021E3622D108D500849E90 /* shader.h */,
 				300C241E22D900C0002E535D /* temp.cpp */,
