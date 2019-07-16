@@ -5,7 +5,7 @@ Camera::Camera()
 	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/vertex3.txt",
 		"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/fragment3.txt"};
 	
-	_cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+	_cameraPos = glm::vec3(0.0f, 0.0f, -3.0f);
 	
 	glm::vec3 cameraTarget = glm::vec3(0.0f);
 	glm::vec3 cameraDirection = glm::normalize(_cameraPos - cameraTarget);
@@ -65,20 +65,17 @@ void Camera::update()
 	
 	glm::mat4 model = glm::mat4(1.0f);
 	
-	float radius = 10.0f;
-	float cameraX = sin(SDL_GetTicks() / 1000.0f) * radius;
-	float cameraZ = cos(SDL_GetTicks() / 1000.0f) * radius;
 	if (_isUp)
-		_cameraPos.y += 0.2f;
+		_cameraPos.z += 0.2f;
 	if (_isLeft)
-		_cameraPos.x -= 0.2f;
-	if (_isDown)
-		_cameraPos.y -= 0.2f;
-	if (_isRight)
 		_cameraPos.x += 0.2f;
+	if (_isDown)
+		_cameraPos.z -= 0.2f;
+	if (_isRight)
+		_cameraPos.x -= 0.2f;
 		
 	_view = glm::lookAt(_cameraPos,
-						glm::vec3(0.0f, 0.0f, 0.0f),
+						_cameraPos + glm::vec3(0.0f, 0.0f, 1.0f),
 						glm::vec3(0.0f, 1.0f, 0.0f));
 	
 	glm::mat4 projection = glm::perspective(45.0f, (float)800 / (float)600, 0.1f, 100.0f);
