@@ -38,6 +38,14 @@ int main(int argc, char* args[])
 		{
 			if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
 				break;
+			if (event.type == SDL_KEYDOWN)
+			{
+				camera.onKeyDown(event.key.keysym.sym);
+			}
+			if (event.type == SDL_KEYUP)
+			{
+				camera.onKeyUp(event.key.keysym.sym);
+			}
 		}
 		
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

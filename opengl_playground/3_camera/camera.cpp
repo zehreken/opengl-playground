@@ -1,15 +1,14 @@
 #include "camera.hpp"
-#include <SDL2/SDL.h>
 
 Camera::Camera()
 {
 	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/vertex3.txt",
 		"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/fragment3.txt"};
 	
-	glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+	_cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 	
 	glm::vec3 cameraTarget = glm::vec3(0.0f);
-	glm::vec3 cameraDirection = glm::normalize(cameraPos - cameraTarget);
+	glm::vec3 cameraDirection = glm::normalize(_cameraPos - cameraTarget);
 	
 	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
 	glm::vec3 cameraRight = glm::normalize(glm::cross(up, cameraDirection));
@@ -69,7 +68,16 @@ void Camera::update()
 	float radius = 10.0f;
 	float cameraX = sin(SDL_GetTicks() / 1000.0f) * radius;
 	float cameraZ = cos(SDL_GetTicks() / 1000.0f) * radius;
-	_view = glm::lookAt(glm::vec3(cameraX, 0.0f, cameraZ),
+	if (_isUp)
+		_cameraPos.y += 0.2f;
+	if (_isLeft)
+		_cameraPos.x -= 0.2f;
+	if (_isDown)
+		_cameraPos.y -= 0.2f;
+	if (_isRight)
+		_cameraPos.x += 0.2f;
+		
+	_view = glm::lookAt(_cameraPos,
 						glm::vec3(0.0f, 0.0f, 0.0f),
 						glm::vec3(0.0f, 1.0f, 0.0f));
 	
@@ -91,4 +99,24 @@ void Camera::update()
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	}
 	glBindVertexArray(0);
+}
+
+void Camera::onKeyDown(SDL_Keycode key)
+{
+	_isUp = key == SDLK_w;
+	_isLeft = key == SDLK_a;
+	_isDown = key == SDLK_s;
+	_isRight = key == SDLK_d;
+}
+
+void Camera::onKeyUp(SDL_Keycode key)
+{
+	if (key == SDLK_w)
+		_isUp = false;
+	if (key == SDLK_a)
+		_isLeft = false;
+	if (key == SDLK_s)
+		_isDown = false;
+	if (key == SDLK_d)
+		_isRight = false;
 }
