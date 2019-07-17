@@ -21,6 +21,9 @@ private:
 	unsigned int _vbo;
 	unsigned int _ebo;
 	glm::vec3 _cameraPos;
+	glm::vec3 _cameraRight;
+	glm::vec3 _cameraUp;
+	glm::vec3 _cameraForward;
 	bool _isUp = false;
 	bool _isLeft = false;
 	bool _isDown = false;

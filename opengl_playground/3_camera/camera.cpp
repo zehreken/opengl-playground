@@ -7,17 +7,14 @@ Camera::Camera()
 	
 	_cameraPos = glm::vec3(0.0f, 0.0f, -3.0f);
 	
-	glm::vec3 cameraTarget = glm::vec3(0.0f);
-	glm::vec3 cameraDirection = glm::normalize(_cameraPos - cameraTarget);
+	_cameraForward = glm::vec3(0.0f, 0.0f, -1.0f);
+	_cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+	_cameraRight = glm::cross(_cameraForward, _cameraUp);
+//	std::cout << "right: " << _cameraRight.x << std::endl;
 	
-	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
-	glm::vec3 cameraRight = glm::normalize(glm::cross(up, cameraDirection));
-	
-	glm::vec3 cameraUp = glm::cross(cameraDirection, cameraRight);
-	
-	_view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), // position vector
-					   glm::vec3(0.0f, 0.0f, 0.0f), // target vector
-					   glm::vec3(0.0f, 1.0f, 0.0f)); // up vector
+	_view = glm::lookAt(_cameraPos, // position vector
+					   _cameraPos + _cameraForward, // target vector
+					   _cameraUp); // up vector
 	
 	float vertices[] =
 	{
@@ -64,19 +61,20 @@ void Camera::update()
 	_shader.use();
 	
 	glm::mat4 model = glm::mat4(1.0f);
+	float factor = 0.1;
 	
 	if (_isUp)
-		_cameraPos.z += 0.2f;
+		_cameraPos += _cameraForward * factor;
 	if (_isLeft)
-		_cameraPos.x += 0.2f;
+		_cameraPos -= _cameraRight * factor;
 	if (_isDown)
-		_cameraPos.z -= 0.2f;
+		_cameraPos -= _cameraForward * factor;
 	if (_isRight)
-		_cameraPos.x -= 0.2f;
+		_cameraPos += _cameraRight * factor;
 		
 	_view = glm::lookAt(_cameraPos,
-						_cameraPos + glm::vec3(0.0f, 0.0f, 1.0f),
-						glm::vec3(0.0f, 1.0f, 0.0f));
+						_cameraPos + _cameraForward,
+						_cameraUp);
 	
 	glm::mat4 projection = glm::perspective(45.0f, (float)800 / (float)600, 0.1f, 100.0f);
 	
