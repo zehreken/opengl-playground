@@ -31,20 +31,29 @@ int main(int argc, char* args[])
 	Cubes cubes;
 	Camera camera;
 	
+	int mouseX;
+	int mouseY;
+	
 	SDL_Event event;
 	while (true) // Render loop
 	{
 		if (SDL_PollEvent(&event))
 		{
 			if (event.type == SDL_QUIT || event.key.keysym.sym == SDLK_ESCAPE)
+			{
 				break;
-			if (event.type == SDL_KEYDOWN)
+			}
+			else if (event.type == SDL_KEYDOWN)
 			{
 				camera.onKeyDown(event.key.keysym.sym);
 			}
-			if (event.type == SDL_KEYUP)
+			else if (event.type == SDL_KEYUP)
 			{
 				camera.onKeyUp(event.key.keysym.sym);
+			}
+			else if (event.type == SDL_MOUSEMOTION)
+			{
+				SDL_GetMouseState(&mouseX, &mouseY);
 			}
 		}
 		
