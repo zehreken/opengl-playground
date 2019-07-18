@@ -5,7 +5,7 @@ Camera::Camera()
 	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/vertex3.txt",
 		"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/fragment3.txt"};
 	
-	_cameraPos = glm::vec3(0.0f, 0.0f, -3.0f);
+	_cameraPos = glm::vec3(0.0f, 0.0f, -10.0f);
 	
 	_cameraForward = glm::vec3(0.0f, 0.0f, -1.0f);
 	_cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -65,11 +65,11 @@ void Camera::update(int mouseX, int mouseY)
 	_yaw += diffX * sensitivity;
 	_pitch += diffY * sensitivity;
 	
-	glm::vec3 forward = glm::vec3(0.0f);
-	forward.x = cos(glm::radians(_pitch)) * cos(glm::radians(_yaw));
-	forward.y = sin(glm::radians(_pitch));
-	forward.z = cos(glm::radians(_pitch)) * sin(glm::radians(_yaw));
-	_cameraForward = glm::normalize(forward);
+//	glm::vec3 forward = glm::vec3(0.0f);
+//	forward.x = cos(glm::radians(_pitch)) * cos(glm::radians(_yaw));
+//	forward.y = sin(glm::radians(_pitch));
+//	forward.z = cos(glm::radians(_pitch)) * sin(glm::radians(_yaw));
+//	_cameraForward = glm::normalize(forward);
 //	std::cout << _yaw << " " << _pitch << std::endl;
 	// =====
 	
@@ -113,20 +113,38 @@ void Camera::update(int mouseX, int mouseY)
 
 void Camera::onKeyDown(SDL_Keycode key)
 {
-	_isUp = key == SDLK_w;
-	_isLeft = key == SDLK_a;
-	_isDown = key == SDLK_s;
-	_isRight = key == SDLK_d;
+	switch (key)
+	{
+		case SDLK_w:
+			_isUp = true;
+			break;
+		case SDLK_a:
+			_isLeft = true;
+			break;
+		case SDLK_s:
+			_isDown = true;
+			break;
+		case SDLK_d:
+			_isRight = true;
+			break;
+	}
 }
 
 void Camera::onKeyUp(SDL_Keycode key)
 {
-	if (key == SDLK_w)
-		_isUp = false;
-	if (key == SDLK_a)
-		_isLeft = false;
-	if (key == SDLK_s)
-		_isDown = false;
-	if (key == SDLK_d)
-		_isRight = false;
+	switch (key)
+	{
+		case SDLK_w:
+			_isUp = false;
+			break;
+		case SDLK_a:
+			_isLeft = false;
+			break;
+		case SDLK_s:
+			_isDown = false;
+			break;
+		case SDLK_d:
+			_isRight = false;
+			break;
+	}
 }

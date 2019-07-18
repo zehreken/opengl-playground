@@ -44,7 +44,7 @@ int main(int argc, char* args[])
 			{
 				break;
 			}
-			else if (event.type == SDL_KEYDOWN)
+			if (event.type == SDL_KEYDOWN)
 			{
 				camera.onKeyDown(event.key.keysym.sym);
 			}
