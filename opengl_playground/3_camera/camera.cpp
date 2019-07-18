@@ -56,8 +56,23 @@ Camera::Camera()
 	glBindVertexArray(0);
 }
 
-void Camera::update()
+void Camera::update(int mouseX, int mouseY)
 {
+	int diffX = mouseX;
+	int diffY = mouseY;
+	
+	float sensitivity = 0.05f;
+	_yaw += diffX * sensitivity;
+	_pitch += diffY * sensitivity;
+	
+	glm::vec3 forward = glm::vec3(0.0f);
+	forward.x = cos(glm::radians(_pitch)) * cos(glm::radians(_yaw));
+	forward.y = sin(glm::radians(_pitch));
+	forward.z = cos(glm::radians(_pitch)) * sin(glm::radians(_yaw));
+	_cameraForward = glm::normalize(forward);
+//	std::cout << _yaw << " " << _pitch << std::endl;
+	// =====
+	
 	_shader.use();
 	
 	glm::mat4 model = glm::mat4(1.0f);

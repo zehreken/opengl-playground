@@ -11,7 +11,7 @@ class Camera
 {
 public:
 	Camera();
-	void update();
+	void update(int mouseX, int mouseY);
 	void onKeyDown(SDL_Keycode key);
 	void onKeyUp(SDL_Keycode key);
 private:
@@ -24,6 +24,8 @@ private:
 	glm::vec3 _cameraRight;
 	glm::vec3 _cameraUp;
 	glm::vec3 _cameraForward;
+	float _yaw;
+	float _pitch;
 	bool _isUp = false;
 	bool _isLeft = false;
 	bool _isDown = false;

@@ -35,6 +35,7 @@ int main(int argc, char* args[])
 	int mouseY;
 	
 	SDL_Event event;
+	SDL_SetRelativeMouseMode(SDL_TRUE); // Gives the relative mouse position even if the mouse reaches the edge
 	while (true) // Render loop
 	{
 		if (SDL_PollEvent(&event))
@@ -53,7 +54,7 @@ int main(int argc, char* args[])
 			}
 			else if (event.type == SDL_MOUSEMOTION)
 			{
-				SDL_GetMouseState(&mouseX, &mouseY);
+				SDL_GetRelativeMouseState(&mouseX, &mouseY);
 			}
 		}
 		
@@ -62,10 +63,12 @@ int main(int argc, char* args[])
 		
 //		rotatingPlane.update();
 //		cubes.update();
-		camera.update();
+		camera.update(mouseX, mouseY);
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);
+		
+		SDL_Delay(20);
 	}
 	
 	SDL_GL_DeleteContext(context);
