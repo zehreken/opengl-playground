@@ -62,7 +62,7 @@ void Camera::update(int deltaX, int deltaY)
 {
 	float sensitivity = 0.05f;
 	_yaw += deltaX * sensitivity;
-	_pitch += deltaY * sensitivity;
+	_pitch -= deltaY * sensitivity;
 	if (_pitch > 89.0f) _pitch = 89.0f;
 	if (_pitch < -89.0f) _pitch = -89.0f;
 	
