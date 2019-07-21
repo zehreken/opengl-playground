@@ -62,7 +62,7 @@ void Camera::update(int deltaX, int deltaY)
 {
 	float sensitivity = 0.05f;
 	_yaw += deltaX * sensitivity;
-	_pitch += deltaY * sensitivity;
+//	_pitch += deltaY * sensitivity;
 	
 	glm::vec3 forward = glm::vec3(0.0f);
 	forward.x = cos(glm::radians(_pitch)) * cos(glm::radians(_yaw));
@@ -70,6 +70,8 @@ void Camera::update(int deltaX, int deltaY)
 	forward.z = cos(glm::radians(_pitch)) * sin(glm::radians(_yaw));
 	_cameraForward = glm::normalize(forward);
 //	std::cout << _yaw << " " << _pitch << std::endl;
+	
+	_cameraRight = glm::normalize(glm::cross(_cameraForward, _cameraUp));
 	// =====
 	
 	_shader.use();
