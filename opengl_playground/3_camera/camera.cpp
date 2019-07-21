@@ -5,12 +5,14 @@ Camera::Camera()
 	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/vertex3.txt",
 		"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/fragment3.txt"};
 	
-	_cameraPos = glm::vec3(0.0f, 0.0f, -10.0f);
+	_cameraPos = glm::vec3(0.0f, 0.0f, 30.0f);
 	
 	_cameraForward = glm::vec3(0.0f, 0.0f, -1.0f);
 	_cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 	_cameraRight = glm::cross(_cameraForward, _cameraUp);
-//	std::cout << "right: " << _cameraRight.x << std::endl;
+	
+	_yaw = 0.0f;
+	_pitch = 0.0f;
 	
 	_view = glm::lookAt(_cameraPos, // position vector
 					   _cameraPos + _cameraForward, // target vector
@@ -56,20 +58,17 @@ Camera::Camera()
 	glBindVertexArray(0);
 }
 
-void Camera::update(int mouseX, int mouseY)
+void Camera::update(int deltaX, int deltaY)
 {
-	int diffX = mouseX;
-	int diffY = mouseY;
-	
 	float sensitivity = 0.05f;
-	_yaw += diffX * sensitivity;
-	_pitch += diffY * sensitivity;
+	_yaw += deltaX * sensitivity;
+	_pitch += deltaY * sensitivity;
 	
-//	glm::vec3 forward = glm::vec3(0.0f);
-//	forward.x = cos(glm::radians(_pitch)) * cos(glm::radians(_yaw));
-//	forward.y = sin(glm::radians(_pitch));
-//	forward.z = cos(glm::radians(_pitch)) * sin(glm::radians(_yaw));
-//	_cameraForward = glm::normalize(forward);
+	glm::vec3 forward = glm::vec3(0.0f);
+	forward.x = cos(glm::radians(_pitch)) * cos(glm::radians(_yaw));
+	forward.y = sin(glm::radians(_pitch));
+	forward.z = cos(glm::radians(_pitch)) * sin(glm::radians(_yaw));
+	_cameraForward = glm::normalize(forward);
 //	std::cout << _yaw << " " << _pitch << std::endl;
 	// =====
 	

@@ -11,7 +11,7 @@ class Camera
 {
 public:
 	Camera();
-	void update(int mouseX, int mouseY);
+	void update(int deltaX, int deltaY);
 	void onKeyDown(SDL_Keycode key);
 	void onKeyUp(SDL_Keycode key);
 private:
