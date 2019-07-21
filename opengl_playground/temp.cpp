@@ -39,6 +39,8 @@ int main(int argc, char* args[])
 	bool isRunning = true;
 	while (isRunning) // Render loop
 	{
+		deltaX = 0;
+		deltaY = 0;
 		while (SDL_PollEvent(&event))
 		{
 			if (event.type == SDL_QUIT)
