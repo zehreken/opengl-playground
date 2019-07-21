@@ -62,22 +62,28 @@ void Camera::update(int deltaX, int deltaY)
 {
 	float sensitivity = 0.05f;
 	_yaw += deltaX * sensitivity;
-//	_pitch += deltaY * sensitivity;
+	_pitch += deltaY * sensitivity;
 	
 	glm::vec3 forward = glm::vec3(0.0f);
 	forward.x = cos(glm::radians(_pitch)) * cos(glm::radians(_yaw));
 	forward.y = sin(glm::radians(_pitch));
 	forward.z = cos(glm::radians(_pitch)) * sin(glm::radians(_yaw));
 	_cameraForward = glm::normalize(forward);
-//	std::cout << _yaw << " " << _pitch << std::endl;
 	
 	_cameraRight = glm::normalize(glm::cross(_cameraForward, _cameraUp));
-	// =====
 	
 	_shader.use();
 	
 	glm::mat4 model = glm::mat4(1.0f);
 	float factor = 0.1;
+	
+	_view = glm::lookAt(_cameraPos,
+						_cameraPos + _cameraForward,
+						_cameraUp);
+	
+	// For FPS like camera movement
+	_cameraForward.y = 0.0f;
+	// ============================
 	
 	if (_isUp)
 		_cameraPos += _cameraForward * factor;
@@ -87,10 +93,6 @@ void Camera::update(int deltaX, int deltaY)
 		_cameraPos -= _cameraForward * factor;
 	if (_isRight)
 		_cameraPos += _cameraRight * factor;
-		
-	_view = glm::lookAt(_cameraPos,
-						_cameraPos + _cameraForward,
-						_cameraUp);
 	
 	glm::mat4 projection = glm::perspective(45.0f, (float)800 / (float)600, 0.1f, 100.0f);
 	
