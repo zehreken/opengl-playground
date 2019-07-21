@@ -63,6 +63,8 @@ void Camera::update(int deltaX, int deltaY)
 	float sensitivity = 0.05f;
 	_yaw += deltaX * sensitivity;
 	_pitch += deltaY * sensitivity;
+	if (_pitch > 89.0f) _pitch = 89.0f;
+	if (_pitch < -89.0f) _pitch = -89.0f;
 	
 	glm::vec3 forward = glm::vec3(0.0f);
 	forward.x = cos(glm::radians(_pitch)) * cos(glm::radians(_yaw));
