@@ -63,10 +63,18 @@ void World::update(int deltaX, int deltaY)
 	for (int i = 0; i < 20; i++)
 	{
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, i * 0.0f, i * 1.0f));
+		model = glm::translate(model, glm::vec3(0.0f, i * 0.0f, -10 + i * 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	}
+	
+	model = glm::mat4(1.0);
+	model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+	model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	
 	glBindVertexArray(0);
 }
 
