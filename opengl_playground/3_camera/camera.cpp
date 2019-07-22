@@ -87,11 +87,11 @@ void Camera::update(int deltaX, int deltaY)
 	_cameraForward.y = 0.0f;
 	// ============================
 	
-	if (_isUp)
+	if (_isForward)
 		_cameraPos += _cameraForward * factor;
 	if (_isLeft)
 		_cameraPos -= _cameraRight * factor;
-	if (_isDown)
+	if (_isBack)
 		_cameraPos -= _cameraForward * factor;
 	if (_isRight)
 		_cameraPos += _cameraRight * factor;
@@ -121,13 +121,13 @@ void Camera::onKeyDown(SDL_Keycode key)
 	switch (key)
 	{
 		case SDLK_w:
-			_isUp = true;
+			_isForward = true;
 			break;
 		case SDLK_a:
 			_isLeft = true;
 			break;
 		case SDLK_s:
-			_isDown = true;
+			_isBack = true;
 			break;
 		case SDLK_d:
 			_isRight = true;
@@ -140,13 +140,13 @@ void Camera::onKeyUp(SDL_Keycode key)
 	switch (key)
 	{
 		case SDLK_w:
-			_isUp = false;
+			_isForward = false;
 			break;
 		case SDLK_a:
 			_isLeft = false;
 			break;
 		case SDLK_s:
-			_isDown = false;
+			_isBack = false;
 			break;
 		case SDLK_d:
 			_isRight = false;

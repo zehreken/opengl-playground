@@ -26,9 +26,9 @@ private:
 	glm::vec3 _cameraForward;
 	float _yaw;
 	float _pitch;
-	bool _isUp = false;
+	bool _isForward = false;
 	bool _isLeft = false;
-	bool _isDown = false;
+	bool _isBack = false;
 	bool _isRight = false;
 };
 
