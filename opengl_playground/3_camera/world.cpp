@@ -2,11 +2,6 @@
 
 World::World()
 {
-	
-}
-
-void World::update()
-{
 	_shader = {"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/vertex3.txt",
 		"/Users/zehreken/Development/opengl_playground/opengl_playground/3_camera/fragment3.txt"};
 	
@@ -47,5 +42,30 @@ void World::update()
 	glEnableVertexAttribArray(2);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+void World::update(int deltaX, int deltaY)
+{
+	_camera.update(deltaX, deltaY);
+	_shader.use();
+	
+	glm::mat4 model(1.0f);
+	
+	unsigned int modelLoc = glGetUniformLocation(_shader.ID, "model");
+	unsigned int viewLoc  = glGetUniformLocation(_shader.ID, "view");
+	unsigned int projLoc  = glGetUniformLocation(_shader.ID, "projection");
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(_camera.getView()));
+	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(_camera.getProjection()));
+	
+	glBindVertexArray(_vao);
+	for (int i = 0; i < 20; i++)
+	{
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, i * 0.0f, i * 1.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	}
 	glBindVertexArray(0);
 }

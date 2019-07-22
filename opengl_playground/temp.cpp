@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
 #include "rotatingPlane.hpp"
 #include "cubes.hpp"
-#include "3_camera/camera.hpp"
+#include "3_camera/world.hpp"
 
 const int WIDTH = 800;
 const int HEIGHT = 600;
@@ -29,7 +29,7 @@ int main(int argc, char* args[])
 	
 	RotatingPlane rotatingPlane;
 	Cubes cubes;
-	Camera camera;
+	World world;
 	
 	int deltaX;
 	int deltaY;
@@ -49,11 +49,11 @@ int main(int argc, char* args[])
 			}
 			if (event.type == SDL_KEYDOWN)
 			{
-				camera.onKeyDown(event.key.keysym.sym);
+//				camera.onKeyDown(event.key.keysym.sym);
 			}
 			else if (event.type == SDL_KEYUP)
 			{
-				camera.onKeyUp(event.key.keysym.sym);
+//				camera.onKeyUp(event.key.keysym.sym);
 			}
 			else if (event.type == SDL_MOUSEMOTION)
 			{
@@ -66,7 +66,7 @@ int main(int argc, char* args[])
 		
 //		rotatingPlane.update();
 //		cubes.update();
-		camera.update(deltaX, deltaY);
+		world.update(deltaX, deltaY);
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);
