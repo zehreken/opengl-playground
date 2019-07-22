@@ -69,3 +69,13 @@ void World::update(int deltaX, int deltaY)
 	}
 	glBindVertexArray(0);
 }
+
+void World::onKeyDown(SDL_Keycode key)
+{
+	_camera.onKeyDown(key);
+}
+
+void World::onKeyUp(SDL_Keycode key)
+{
+	_camera.onKeyUp(key);
+}

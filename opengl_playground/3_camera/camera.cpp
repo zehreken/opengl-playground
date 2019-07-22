@@ -34,7 +34,6 @@ void Camera::update(int deltaX, int deltaY)
 	
 	_cameraRight = glm::normalize(glm::cross(_cameraForward, _cameraUp));
 	
-	float factor = 0.1;
 	
 	_view = glm::lookAt(_cameraPos,
 						_cameraPos + _cameraForward,
@@ -44,6 +43,7 @@ void Camera::update(int deltaX, int deltaY)
 	_cameraForward.y = 0.0f;
 	// ============================
 	
+	float factor = 0.1;
 	if (_isForward)
 		_cameraPos += _cameraForward * factor;
 	if (_isLeft)

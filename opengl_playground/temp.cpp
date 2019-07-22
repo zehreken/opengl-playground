@@ -49,11 +49,11 @@ int main(int argc, char* args[])
 			}
 			if (event.type == SDL_KEYDOWN)
 			{
-//				camera.onKeyDown(event.key.keysym.sym);
+				world.onKeyDown(event.key.keysym.sym);
 			}
 			else if (event.type == SDL_KEYUP)
 			{
-//				camera.onKeyUp(event.key.keysym.sym);
+				world.onKeyUp(event.key.keysym.sym);
 			}
 			else if (event.type == SDL_MOUSEMOTION)
 			{
