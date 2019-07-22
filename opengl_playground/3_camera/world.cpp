@@ -59,8 +59,11 @@ void World::update(int deltaX, int deltaY)
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(_camera.getView()));
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(_camera.getProjection()));
 	
+	unsigned int colorLoc = glGetUniformLocation(_shader.ID, "Color");
+	glUniform4f(colorLoc, 1.0f, 0.0f, 0.215f, 1.0f);
+	
 	glBindVertexArray(_vao);
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 21; i++)
 	{
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, i * 0.0f, -10 + i * 1.0f));
@@ -73,6 +76,15 @@ void World::update(int deltaX, int deltaY)
 	model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 	model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	glUniform4f(colorLoc, 0.0f, 1.0f, 0.215f, 1.0f);
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	
+	model = glm::mat4(1.0);
+	model = glm::translate(model, glm::vec3(0.0f, 0.5f, 0.0f));
+	model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	glUniform4f(colorLoc, 0.0f, 0.0f, 1.0f, 1.0f);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	
 	glBindVertexArray(0);
