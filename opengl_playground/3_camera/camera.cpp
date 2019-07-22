@@ -11,7 +11,7 @@ Camera::Camera()
 	_cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 	_cameraRight = glm::cross(_cameraForward, _cameraUp);
 	
-	_yaw = 0.0f;
+	_yaw = -90.0f;
 	_pitch = 0.0f;
 	
 	_view = glm::lookAt(_cameraPos, // position vector
