@@ -3,6 +3,7 @@
 #include "rotatingPlane.hpp"
 #include "cubes.hpp"
 #include "3_camera/world.hpp"
+#include "4_color/color.hpp"
 
 const int WIDTH = 800;
 const int HEIGHT = 600;
@@ -30,6 +31,7 @@ int main(int argc, char* args[])
 	RotatingPlane rotatingPlane;
 	Cubes cubes;
 	World world;
+	Color color;
 	
 	int deltaX;
 	int deltaY;
@@ -67,6 +69,7 @@ int main(int argc, char* args[])
 //		rotatingPlane.update();
 //		cubes.update();
 		world.update(deltaX, deltaY);
+		color.update();
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);
