@@ -145,10 +145,10 @@
 		300E654822C3EE4D00952BC7 /* opengl_playground */ = {
 			isa = PBXGroup;
 			children = (
-				3005C76F22F8B78E00B8B5B3 /* 4_color */,
 				300A611922DA6D28000DD561 /* 1_rotatingPlane */,
 				300A611822DA6D05000DD561 /* 2_cubes */,
 				300814E622DBCCF20040095E /* 3_camera */,
+				3005C76F22F8B78E00B8B5B3 /* 4_color */,
 				30021E3622D108D500849E90 /* shader.h */,
 				300C241E22D900C0002E535D /* main.cpp */,
 			);
