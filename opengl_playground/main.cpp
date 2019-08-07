@@ -68,8 +68,8 @@ int main(int argc, char* args[])
 		
 //		rotatingPlane.update();
 //		cubes.update();
-		world.update(deltaX, deltaY);
-		color.update();
+//		world.update(deltaX, deltaY);
+		color.update(deltaX, deltaY);
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);

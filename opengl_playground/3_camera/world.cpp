@@ -71,6 +71,7 @@ void World::update(int deltaX, int deltaY)
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	}
 	
+	// Green quad, floor
 	model = glm::mat4(1.0);
 	model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
 	model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -79,6 +80,7 @@ void World::update(int deltaX, int deltaY)
 	glUniform4f(colorLoc, 0.0f, 1.0f, 0.215f, 1.0f);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	
+	// Blue quad, ceiling
 	model = glm::mat4(1.0);
 	model = glm::translate(model, glm::vec3(0.0f, 0.5f, 0.0f));
 	model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));

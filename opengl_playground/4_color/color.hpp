@@ -9,7 +9,7 @@ class Color
 {
 public:
 	Color();
-	void update();
+	void update(int deltaX, int deltaY);
 private:
 	Camera _camera;
 	Shader _shader;
