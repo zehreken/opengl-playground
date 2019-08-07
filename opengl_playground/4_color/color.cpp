@@ -74,7 +74,6 @@ void Color::update(int deltaX, int deltaY)
 	_shader.use();
 	
 	glm::mat4 model = glm::mat4(1.0f);
-//	model = glm::rotate(model, glm::radians((float)SDL_GetTicks() / 10.0f), glm::vec3(1.0f, 1.0f, 0.0f));
 	
 	unsigned int modelLoc = glGetUniformLocation(_shader.ID, "model");
 	unsigned int viewLoc  = glGetUniformLocation(_shader.ID, "view");
@@ -84,14 +83,8 @@ void Color::update(int deltaX, int deltaY)
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(_camera.getProjection()));
 	
 	glBindVertexArray(_vao);
-	for (int i = 0; i < 1; i++)
-	{
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0, 0.0, 0.0));
-		float angle = 20.0f * i;
-//		model = glm::rotate(model, glm::radians(angle + (float)SDL_GetTicks() / 100.0f), glm::vec3(1.0f, 0.3f, 0.5f));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glDrawArrays(GL_TRIANGLES, 0, 36);
-	}
+	
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	
 	glBindVertexArray(0);
 }
