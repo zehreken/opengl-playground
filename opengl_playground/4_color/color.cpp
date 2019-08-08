@@ -88,3 +88,13 @@ void Color::update(int deltaX, int deltaY)
 	
 	glBindVertexArray(0);
 }
+
+void Color::onKeyDown(SDL_Keycode key)
+{
+	_camera.onKeyDown(key);
+}
+
+void Color::onKeyUp(SDL_Keycode key)
+{
+	_camera.onKeyUp(key);
+}

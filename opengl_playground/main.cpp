@@ -51,11 +51,13 @@ int main(int argc, char* args[])
 			}
 			if (event.type == SDL_KEYDOWN)
 			{
-				world.onKeyDown(event.key.keysym.sym);
+//				world.onKeyDown(event.key.keysym.sym);
+				color.onKeyDown(event.key.keysym.sym);
 			}
 			else if (event.type == SDL_KEYUP)
 			{
-				world.onKeyUp(event.key.keysym.sym);
+//				world.onKeyUp(event.key.keysym.sym);
+				color.onKeyUp(event.key.keysym.sym);
 			}
 			else if (event.type == SDL_MOUSEMOTION)
 			{

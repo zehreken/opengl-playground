@@ -10,6 +10,8 @@ class Color
 public:
 	Color();
 	void update(int deltaX, int deltaY);
+	void onKeyDown(SDL_Keycode key);
+	void onKeyUp(SDL_Keycode key);
 private:
 	Camera _camera;
 	Shader _shader;
