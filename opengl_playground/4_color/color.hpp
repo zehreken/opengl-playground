@@ -15,9 +15,11 @@ public:
 private:
 	Camera _camera;
 	Shader _shader;
+	Shader _lightShader;
 	unsigned int _vao;
 	unsigned int _vbo;
 	unsigned int _ebo;
+	unsigned int _lightVao;
 };
 
 #endif /* color_hpp */
