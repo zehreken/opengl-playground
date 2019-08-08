@@ -76,14 +76,19 @@ Color::Color()
 	glEnable(GL_DEPTH_TEST);
 }
 
+static float lr = 0.0f;
+static float lg = 0.0f;
+static float lb = 0.0f;
 void Color::update(int deltaX, int deltaY)
 {
+	lb = sin(SDL_GetTicks() * 0.001f);
+	lg = sin(SDL_GetTicks() * 0.001f);
 	_camera.update(deltaX, deltaY);
 	_shader.use();
 	unsigned int objectColorLoc = glGetUniformLocation(_shader.ID, "objectColor");
-	glUniform3f(objectColorLoc, 0.0f, 1.0f, 0.0f);
+	glUniform3f(objectColorLoc, 0.5f, 0.5f, 0.5f);
 	unsigned int lightColorLoc = glGetUniformLocation(_shader.ID, "lightColor");
-	glUniform3f(lightColorLoc, 0.0f, 1.0f, 0.0f);
+	glUniform3f(lightColorLoc, lr, lg, lb);
 	
 	glm::mat4 model = glm::mat4(1.0f);
 	
@@ -103,6 +108,8 @@ void Color::update(int deltaX, int deltaY)
 	modelLoc = glGetUniformLocation(_lightShader.ID, "model");
 	viewLoc  = glGetUniformLocation(_lightShader.ID, "view");
 	projLoc  = glGetUniformLocation(_lightShader.ID, "projection");
+	lightColorLoc = glGetUniformLocation(_lightShader.ID, "lightColor");
+	glUniform3f(lightColorLoc, lr, lg, lb);
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, glm::vec3(2.0f, 0.0f, 0.0f));
 	modelLoc = glGetUniformLocation(_shader.ID, "model");
