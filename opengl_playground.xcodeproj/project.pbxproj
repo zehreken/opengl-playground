@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3001356422E634C00020F039 /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3001356222E634C00020F039 /* world.cpp */; };
+		30049D3E22FE0137007B6C30 /* basicLighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30049D3C22FE0137007B6C30 /* basicLighting.cpp */; };
 		3005C77222F8B7AD00B8B5B3 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3005C77022F8B7AD00B8B5B3 /* color.cpp */; };
 		300814E922DBCD090040095E /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300814E722DBCD090040095E /* camera.cpp */; };
 		3009076822C41EEF0058A4AF /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */; };
@@ -38,6 +39,11 @@
 		30021E3622D108D500849E90 /* shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
 		3003D88622F9FF3C00684D5E /* vertex4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex4.txt; sourceTree = "<group>"; };
 		3003D88722F9FF4C00684D5E /* fragment4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = fragment4.txt; sourceTree = "<group>"; };
+		30049D3922FDFF8D007B6C30 /* vertex5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex5.txt; sourceTree = "<group>"; };
+		30049D3B22FDFFA5007B6C30 /* fragment5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = fragment5.txt; sourceTree = "<group>"; };
+		30049D3C22FE0137007B6C30 /* basicLighting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = basicLighting.cpp; sourceTree = "<group>"; };
+		30049D3D22FE0137007B6C30 /* basicLighting.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = basicLighting.hpp; sourceTree = "<group>"; };
+		30049D3F22FE06CD007B6C30 /* lightF5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = lightF5.txt; sourceTree = "<group>"; };
 		3005C77022F8B7AD00B8B5B3 /* color.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = color.cpp; sourceTree = "<group>"; };
 		3005C77122F8B7AD00B8B5B3 /* color.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = color.hpp; sourceTree = "<group>"; };
 		300814E722DBCD090040095E /* camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
@@ -78,6 +84,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30049D3822FDFF6A007B6C30 /* 5_basicLighting */ = {
+			isa = PBXGroup;
+			children = (
+				30049D3922FDFF8D007B6C30 /* vertex5.txt */,
+				30049D3B22FDFFA5007B6C30 /* fragment5.txt */,
+				30049D3C22FE0137007B6C30 /* basicLighting.cpp */,
+				30049D3D22FE0137007B6C30 /* basicLighting.hpp */,
+				30049D3F22FE06CD007B6C30 /* lightF5.txt */,
+			);
+			path = 5_basicLighting;
+			sourceTree = "<group>";
+		};
 		3005C76F22F8B78E00B8B5B3 /* 4_color */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +169,7 @@
 				300A611822DA6D05000DD561 /* 2_cubes */,
 				300814E622DBCCF20040095E /* 3_camera */,
 				3005C76F22F8B78E00B8B5B3 /* 4_color */,
+				30049D3822FDFF6A007B6C30 /* 5_basicLighting */,
 				30021E3622D108D500849E90 /* shader.h */,
 				300C241E22D900C0002E535D /* main.cpp */,
 			);
@@ -226,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				300A611722DA692B000DD561 /* rotatingPlane.cpp in Sources */,
+				30049D3E22FE0137007B6C30 /* basicLighting.cpp in Sources */,
 				300C242222D91671002E535D /* cubes.cpp in Sources */,
 				300C241F22D900C0002E535D /* main.cpp in Sources */,
 				3005C77222F8B7AD00B8B5B3 /* color.cpp in Sources */,

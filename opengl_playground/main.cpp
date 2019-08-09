@@ -4,6 +4,7 @@
 #include "cubes.hpp"
 #include "3_camera/world.hpp"
 #include "4_color/color.hpp"
+#include "5_basicLighting/basicLighting.hpp"
 
 const int WIDTH = 800;
 const int HEIGHT = 600;
@@ -32,6 +33,7 @@ int main(int argc, char* args[])
 	Cubes cubes;
 	World world;
 	Color color;
+	BasicLighting basicLighting;
 	
 	int deltaX;
 	int deltaY;
@@ -52,12 +54,14 @@ int main(int argc, char* args[])
 			if (event.type == SDL_KEYDOWN)
 			{
 //				world.onKeyDown(event.key.keysym.sym);
-				color.onKeyDown(event.key.keysym.sym);
+//				color.onKeyDown(event.key.keysym.sym);
+				basicLighting.onKeyDown(event.key.keysym.sym);
 			}
 			else if (event.type == SDL_KEYUP)
 			{
 //				world.onKeyUp(event.key.keysym.sym);
-				color.onKeyUp(event.key.keysym.sym);
+//				color.onKeyUp(event.key.keysym.sym);
+				basicLighting.onKeyUp(event.key.keysym.sym);
 			}
 			else if (event.type == SDL_MOUSEMOTION)
 			{
@@ -71,7 +75,8 @@ int main(int argc, char* args[])
 //		rotatingPlane.update();
 //		cubes.update();
 //		world.update(deltaX, deltaY);
-		color.update(deltaX, deltaY);
+//		color.update(deltaX, deltaY);
+		basicLighting.update(deltaX, deltaY);
 		
 		// Always the last statement in the render loop
 		SDL_GL_SwapWindow(window);
