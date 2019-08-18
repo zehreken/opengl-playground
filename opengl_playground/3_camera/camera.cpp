@@ -4,7 +4,7 @@ Camera::Camera()
 {
 	_projection = glm::perspective(45.0f, (float)800 / (float)600, 0.1f, 100.0f);
 	
-	_cameraPos = glm::vec3(0.0f, 0.0f, 30.0f);
+	_cameraPos = glm::vec3(0.0f, 0.0f, 10.0f);
 	
 	_cameraForward = glm::vec3(0.0f, 0.0f, -1.0f);
 	_cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);

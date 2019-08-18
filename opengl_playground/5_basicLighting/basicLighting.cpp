@@ -84,15 +84,15 @@ static float lb = 0.0f;
 static float lightX = -10.0f;
 void BasicLighting::update(int deltaX, int deltaY)
 {
-	lr = sin(SDL_GetTicks() * 0.001f) + 2.2f;
-	lg = sin(SDL_GetTicks() * 0.001f) + 2.2f;
+	lr = sin(SDL_GetTicks() * 0.001f);
+	lg = sin(SDL_GetTicks() * 0.001f);
 	lightX = sin(SDL_GetTicks() * 0.001f) * 15;
 	_camera.update(deltaX, deltaY);
 	_shader.use();
 	unsigned int objectColorLoc = glGetUniformLocation(_shader.ID, "objectColor");
 	glUniform3f(objectColorLoc, 0.5f, 0.5f, 0.5f);
 	unsigned int lightColorLoc = glGetUniformLocation(_shader.ID, "lightColor");
-	glUniform3f(lightColorLoc, lr, lg, lb);
+	glUniform3f(lightColorLoc, lr + 1.5, lg + 1.5, lb);
 	unsigned int lightPosLoc = glGetUniformLocation(_shader.ID, "lightPos");
 	glUniform3f(lightPosLoc, lightX, 0.0f, 0.0f);
 	
