@@ -82,11 +82,13 @@ static float lr = 0.0f;
 static float lg = 0.0f;
 static float lb = 0.0f;
 static float lightX = -10.0f;
+static float lightZ = -10.0f;
 void BasicLighting::update(int deltaX, int deltaY)
 {
-	lr = sin(SDL_GetTicks() * 0.001f);
-	lg = sin(SDL_GetTicks() * 0.001f);
+	lr = sin(SDL_GetTicks() * 0.001f) + 2;
+	lg = sin(SDL_GetTicks() * 0.001f) + 2;
 	lightX = sin(SDL_GetTicks() * 0.001f) * 15;
+	lightZ = cos(SDL_GetTicks() * 0.001f) * 15;
 	_camera.update(deltaX, deltaY);
 	_shader.use();
 	unsigned int objectColorLoc = glGetUniformLocation(_shader.ID, "objectColor");
@@ -94,7 +96,7 @@ void BasicLighting::update(int deltaX, int deltaY)
 	unsigned int lightColorLoc = glGetUniformLocation(_shader.ID, "lightColor");
 	glUniform3f(lightColorLoc, lr + 1.5, lg + 1.5, lb);
 	unsigned int lightPosLoc = glGetUniformLocation(_shader.ID, "lightPos");
-	glUniform3f(lightPosLoc, lightX, 0.0f, 0.0f);
+	glUniform3f(lightPosLoc, lightX, 0.0f, lightZ);
 	
 	glm::mat4 model = glm::mat4(1.0f);
 	
@@ -121,7 +123,7 @@ void BasicLighting::update(int deltaX, int deltaY)
 	lightColorLoc = glGetUniformLocation(_lightShader.ID, "lightColor");
 	glUniform3f(lightColorLoc, lr, lg, lb);
 	glm::mat4 lightModel = glm::mat4(1.0f);
-	lightModel = glm::translate(lightModel, glm::vec3(lightX, 0.0f, 0.0f));
+	lightModel = glm::translate(lightModel, glm::vec3(lightX, 0.0f, lightZ));
 	modelLoc = glGetUniformLocation(_shader.ID, "model");
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(lightModel));
 	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(_camera.getView()));
