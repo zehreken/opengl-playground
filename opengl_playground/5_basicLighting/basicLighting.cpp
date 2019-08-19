@@ -10,6 +10,7 @@ BasicLighting::BasicLighting()
 	
 	float vertices[] =
 	{
+		// vertex positions(3) and normals(3)
 		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
 		0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
 		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
