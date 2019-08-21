@@ -13,6 +13,7 @@ public:
 	void update(int deltaX, int deltaY);
 	glm::mat4 getView();
 	glm::mat4 getProjection();
+	glm::vec3 getPosition();
 	void onKeyDown(SDL_Keycode key);
 	void onKeyUp(SDL_Keycode key);
 private:

@@ -86,10 +86,10 @@ static float lightX = -10.0f;
 static float lightZ = -10.0f;
 void BasicLighting::update(int deltaX, int deltaY)
 {
-	lr = sin(SDL_GetTicks() * 0.001f) + 2;
-	lg = sin(SDL_GetTicks() * 0.001f) + 2;
-	lightX = sin(SDL_GetTicks() * 0.001f) * 15;
-	lightZ = cos(SDL_GetTicks() * 0.001f) * 15;
+	lr = sin(100 * 0.001f) + 2;
+	lg = sin(100 * 0.001f) + 2;
+	lightX = sin(100 * 0.001f) * 15;
+	lightZ = cos(100 * 0.001f) * 15;
 	_camera.update(deltaX, deltaY);
 	_shader.use();
 	unsigned int objectColorLoc = glGetUniformLocation(_shader.ID, "objectColor");
@@ -98,6 +98,8 @@ void BasicLighting::update(int deltaX, int deltaY)
 	glUniform3f(lightColorLoc, lr + 1.5, lg + 1.5, lb);
 	unsigned int lightPosLoc = glGetUniformLocation(_shader.ID, "lightPos");
 	glUniform3f(lightPosLoc, lightX, 0.0f, lightZ);
+	unsigned int viewPosLoc = glGetUniformLocation(_shader.ID, "viewPos");
+	glUniform3f(viewPosLoc, _camera.getPosition().x, _camera.getPosition().y, _camera.getPosition().z);
 	
 	glm::mat4 model = glm::mat4(1.0f);
 	

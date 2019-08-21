@@ -64,6 +64,11 @@ glm::mat4 Camera::getProjection()
 	return _projection;
 }
 
+glm::vec3 Camera::getPosition()
+{
+	return _cameraPos;
+}
+
 void Camera::onKeyDown(SDL_Keycode key)
 {
 	switch (key)
