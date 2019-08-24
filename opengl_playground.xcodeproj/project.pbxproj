@@ -10,6 +10,7 @@
 		3001356422E634C00020F039 /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3001356222E634C00020F039 /* world.cpp */; };
 		30049D3E22FE0137007B6C30 /* basicLighting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30049D3C22FE0137007B6C30 /* basicLighting.cpp */; };
 		3005C77222F8B7AD00B8B5B3 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3005C77022F8B7AD00B8B5B3 /* color.cpp */; };
+		3007727823119F670064165B /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3007727623119F670064165B /* mesh.cpp */; };
 		300814E922DBCD090040095E /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300814E722DBCD090040095E /* camera.cpp */; };
 		3009076822C41EEF0058A4AF /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */; };
 		3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3009076922C425E40058A4AF /* GLUT.framework */; };
@@ -47,6 +48,8 @@
 		30049D3F22FE06CD007B6C30 /* lightF5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = lightF5.txt; sourceTree = "<group>"; };
 		3005C77022F8B7AD00B8B5B3 /* color.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = color.cpp; sourceTree = "<group>"; };
 		3005C77122F8B7AD00B8B5B3 /* color.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = color.hpp; sourceTree = "<group>"; };
+		3007727623119F670064165B /* mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mesh.cpp; sourceTree = "<group>"; };
+		3007727723119F670064165B /* mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mesh.hpp; sourceTree = "<group>"; };
 		300814E722DBCD090040095E /* camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
 		300814E822DBCD090040095E /* camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = camera.hpp; sourceTree = "<group>"; };
 		3009076322C41D190058A4AF /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
@@ -111,6 +114,15 @@
 			path = 4_color;
 			sourceTree = "<group>";
 		};
+		3007727523119F530064165B /* mesh */ = {
+			isa = PBXGroup;
+			children = (
+				3007727623119F670064165B /* mesh.cpp */,
+				3007727723119F670064165B /* mesh.hpp */,
+			);
+			path = mesh;
+			sourceTree = "<group>";
+		};
 		300814E622DBCCF20040095E /* 3_camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +180,7 @@
 		300E654822C3EE4D00952BC7 /* opengl_playground */ = {
 			isa = PBXGroup;
 			children = (
+				3007727523119F530064165B /* mesh */,
 				300A611922DA6D28000DD561 /* 1_rotatingPlane */,
 				300A611822DA6D05000DD561 /* 2_cubes */,
 				300814E622DBCCF20040095E /* 3_camera */,
@@ -254,6 +267,7 @@
 				300C241F22D900C0002E535D /* main.cpp in Sources */,
 				3005C77222F8B7AD00B8B5B3 /* color.cpp in Sources */,
 				3001356422E634C00020F039 /* world.cpp in Sources */,
+				3007727823119F670064165B /* mesh.cpp in Sources */,
 				300814E922DBCD090040095E /* camera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
