@@ -9,7 +9,7 @@
 struct Vertex
 {
 	glm::vec3 Position;
-	glm::vec3 Norma;
+	glm::vec3 Normal;
 	glm::vec2 TexCoords;
 };
 
@@ -28,7 +28,7 @@ public:
 	std::vector<Texture> textures;
 	// Functions
 	Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
-	void Draw(Shader shader);
+	void draw(Shader shader);
 private:
 	unsigned int _vao;
 	unsigned int _vbo;
