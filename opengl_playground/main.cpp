@@ -5,6 +5,9 @@
 #include "3_camera/world.hpp"
 #include "4_color/color.hpp"
 #include "5_basicLighting/basicLighting.hpp"
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 const int WIDTH = 800;
 const int HEIGHT = 600;

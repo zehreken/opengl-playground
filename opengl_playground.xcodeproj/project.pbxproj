@@ -18,6 +18,7 @@
 		300C241F22D900C0002E535D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300C241E22D900C0002E535D /* main.cpp */; };
 		300C242222D91671002E535D /* cubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300C242022D91671002E535D /* cubes.cpp */; };
 		300E655222C3F10A00952BC7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300E655122C3F10A00952BC7 /* SDL2.framework */; };
+		30378FA923115C620000D2D3 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 30378FA823115C620000D2D3 /* libassimp.4.1.0.dylib */; };
 		30A3068122D27CB000F0F732 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A3068022D27CB000F0F732 /* SDL2_image.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		300C242122D91671002E535D /* cubes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cubes.hpp; sourceTree = "<group>"; };
 		300E654622C3EE4D00952BC7 /* opengl_playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl_playground; sourceTree = BUILT_PRODUCTS_DIR; };
 		300E655122C3F10A00952BC7 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		30378FA823115C620000D2D3 /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../usr/local/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
 		30478F5122FCBBBC009E8FCA /* lightF4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = lightF4.txt; sourceTree = "<group>"; };
 		30A3068022D27CB000F0F732 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
 		30FEA13E22DCEFFB001D782D /* vertex3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = vertex3.txt; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30378FA923115C620000D2D3 /* libassimp.4.1.0.dylib in Frameworks */,
 				30A3068122D27CB000F0F732 /* SDL2_image.framework in Frameworks */,
 				3009076C22C425F40058A4AF /* OpenGL.framework in Frameworks */,
 				3009076A22C425E40058A4AF /* GLUT.framework in Frameworks */,
@@ -179,6 +182,7 @@
 		300E655022C3F10A00952BC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30378FA823115C620000D2D3 /* libassimp.4.1.0.dylib */,
 				30A3068022D27CB000F0F732 /* SDL2_image.framework */,
 				3009076B22C425F40058A4AF /* OpenGL.framework */,
 				3009076922C425E40058A4AF /* GLUT.framework */,
@@ -392,6 +396,12 @@
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
 				);
+				HEADER_SEARCH_PATHS = (
+					/Users/zehreken/Downloads/glm,
+					/usr/local/include,
+					"/Users/zehreken/Downloads/assimp-4.1.0/include",
+					"/Users/zehreken/Downloads/assimp-4.1.0/build/include",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -403,6 +413,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					/Users/zehreken/Downloads/glm,
+					/usr/local/include,
+					"/Users/zehreken/Downloads/assimp-4.1.0/include",
+					"/Users/zehreken/Downloads/assimp-4.1.0/build/include",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
