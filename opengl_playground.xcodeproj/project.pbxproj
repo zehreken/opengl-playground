@@ -19,6 +19,7 @@
 		300C241F22D900C0002E535D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300C241E22D900C0002E535D /* main.cpp */; };
 		300C242222D91671002E535D /* cubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 300C242022D91671002E535D /* cubes.cpp */; };
 		300E655222C3F10A00952BC7 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 300E655122C3F10A00952BC7 /* SDL2.framework */; };
+		30142C3B23129CBD0098EAD8 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30142C3923129CBD0098EAD8 /* model.cpp */; };
 		30378FA923115C620000D2D3 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 30378FA823115C620000D2D3 /* libassimp.4.1.0.dylib */; };
 		30A3068122D27CB000F0F732 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A3068022D27CB000F0F732 /* SDL2_image.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,8 @@
 		300C242122D91671002E535D /* cubes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = cubes.hpp; sourceTree = "<group>"; };
 		300E654622C3EE4D00952BC7 /* opengl_playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl_playground; sourceTree = BUILT_PRODUCTS_DIR; };
 		300E655122C3F10A00952BC7 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		30142C3923129CBD0098EAD8 /* model.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = model.cpp; sourceTree = "<group>"; };
+		30142C3A23129CBD0098EAD8 /* model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = model.hpp; sourceTree = "<group>"; };
 		30378FA823115C620000D2D3 /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../usr/local/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
 		30478F5122FCBBBC009E8FCA /* lightF4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = lightF4.txt; sourceTree = "<group>"; };
 		30A3068022D27CB000F0F732 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 			children = (
 				3007727623119F670064165B /* mesh.cpp */,
 				3007727723119F670064165B /* mesh.hpp */,
+				30142C3923129CBD0098EAD8 /* model.cpp */,
+				30142C3A23129CBD0098EAD8 /* model.hpp */,
 			);
 			path = mesh;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			files = (
 				300A611722DA692B000DD561 /* rotatingPlane.cpp in Sources */,
 				30049D3E22FE0137007B6C30 /* basicLighting.cpp in Sources */,
+				30142C3B23129CBD0098EAD8 /* model.cpp in Sources */,
 				300C242222D91671002E535D /* cubes.cpp in Sources */,
 				300C241F22D900C0002E535D /* main.cpp in Sources */,
 				3005C77222F8B7AD00B8B5B3 /* color.cpp in Sources */,

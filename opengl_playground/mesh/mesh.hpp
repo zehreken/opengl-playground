@@ -1,7 +1,6 @@
 #ifndef mesh_hpp
 #define mesh_hpp
 
-#include <iostream>
 #include <glm/glm.hpp>
 #include <vector>
 #include "../shader.h"

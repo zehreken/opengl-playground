@@ -41,7 +41,7 @@ void Mesh::draw(Shader shader)
 	unsigned int diffuseNr = 1;
 	unsigned int specularNr = 1;
 	
-	for (unsigned int i = 0; i < textures.size(); i++)
+	for (int i = 0; i < textures.size(); i++)
 	{
 		glActiveTexture(GL_TEXTURE0 + i); // Activate proper texture unit before binding
 		// Retreive texture number (the N in diffuse_textureN)
