@@ -1,4 +1,9 @@
 #include "basicLighting.hpp"
+#include "../mesh/mesh.hpp"
+#include "../mesh/model.hpp"
+#include <iostream>
+
+Model ship;
 
 BasicLighting::BasicLighting()
 {
@@ -77,6 +82,8 @@ BasicLighting::BasicLighting()
 	glEnableVertexAttribArray(0);
 	
 	glEnable(GL_DEPTH_TEST);
+	
+	ship.init("/Users/zehreken/Downloads/kenney_piratekit_1/Models/OBJ format/ship_light.obj");
 }
 
 static float lr = 0.0f;
@@ -110,13 +117,18 @@ void BasicLighting::update(int deltaX, int deltaY)
 	glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(_camera.getProjection()));
 	
 	// Render cube
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 0; i++)
 	{
 		model = glm::translate(model, glm::vec3(cos(i * 180) * 10, 0.0f, sin(i * 180) * 10));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glBindVertexArray(_vao);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 	}
+	
+	model = glm::rotate(model, glm::radians((float)SDL_GetTicks() / 40.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	ship.draw(_shader);
 	
 	// Render light object, not the actual light
 	_lightShader.use();

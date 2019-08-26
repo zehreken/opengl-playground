@@ -7,11 +7,14 @@
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
+#include <SDL2/SDL.h>
+#include <SDL2_image/SDL_image.h>
 
 class Model
 {
 public:
-	Model(char *path);
+	Model();
+	void init(char *path);
 	void draw(Shader shader);
 private:
 	std::vector<Mesh> _meshes;
@@ -20,6 +23,7 @@ private:
 	void processNode(aiNode *node, const aiScene *scene);
 	Mesh processMesh(aiMesh *mesh, const aiScene *scene);
 	std::vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName);
+	unsigned int loadTextureFromFile(std::string path, std::string directory);
 };
 
 #endif /* model_hpp */

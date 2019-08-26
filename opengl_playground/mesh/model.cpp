@@ -1,6 +1,8 @@
 #include "model.hpp"
 
-Model::Model(char *path)
+Model::Model() {}
+
+void Model::init(char *path)
 {
 	loadModel(path);
 }
@@ -111,10 +113,29 @@ std::vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType 
 		aiString str;
 		mat->GetTexture(type, i, &str);
 		Texture texture;
-//		texture.id = TextureFromFile(str.C_Str(), _directory);
+		texture.id = loadTextureFromFile(str.C_Str(), _directory);
 		texture.type = typeName;
 		texture.path = str.C_Str();
 		textures.push_back(texture);
 	}
 	return textures;
+}
+
+unsigned int Model::loadTextureFromFile(std::string path, std::string directory)
+{
+	SDL_Surface *surface = IMG_Load(path.c_str());
+	unsigned int texture;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, surface->w, surface->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, surface->pixels);
+	glGenerateMipmap(GL_TEXTURE_2D);
+	
+	return texture;
 }
