@@ -83,6 +83,7 @@ BasicLighting::BasicLighting()
 	
 	glEnable(GL_DEPTH_TEST);
 	
+//	ship.init("/Users/zehreken/Downloads/kenney_piratekit_1/Models/OBJ format/tower.obj");
 	ship.init("/Users/zehreken/Downloads/kenney_piratekit_1/Models/OBJ format/ship_light.obj");
 }
 
