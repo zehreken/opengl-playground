@@ -9,7 +9,7 @@ void Model::init(char *path)
 
 void Model::draw(Shader shader)
 {
-	for (int i = 0; i < _meshes.size(); i++)
+	for (unsigned int i = 0; i < _meshes.size(); i++)
 	{
 		_meshes[i].draw(shader);
 	}
@@ -18,7 +18,7 @@ void Model::draw(Shader shader)
 void Model::loadModel(std::string path)
 {
 	Assimp::Importer importer;
-	const aiScene *scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+	const aiScene *scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_FixInfacingNormals);
 	
 	if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 	{
@@ -34,13 +34,13 @@ void Model::loadModel(std::string path)
 void Model::processNode(aiNode *node, const aiScene *scene)
 {
 	// Process all the node's meshes (if any)
-	for (int i = 0; i < node->mNumMeshes; i++)
+	for (unsigned int i = 0; i < node->mNumMeshes; i++)
 	{
 		aiMesh *mesh = scene->mMeshes[node->mMeshes[i]];
 		_meshes.push_back(processMesh(mesh, scene));
 	}
 	// Then do the same for each of its children
-	for (int i = 0; i < node->mNumChildren; i++)
+	for (unsigned int i = 0; i < node->mNumChildren; i++)
 	{
 		processNode(node->mChildren[i], scene);
 	}
@@ -52,7 +52,7 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
 	std::vector<unsigned int> indices;
 	std::vector<Texture> textures;
 	
-	for (int i = 0; i < mesh->mNumVertices; i++)
+	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{
 		Vertex vertex;
 		// Process vertex positions, normals and texture coordinates
@@ -67,12 +67,12 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
 		vector.z = mesh->mNormals[i].z;
 		vertex.Normal = vector;
 		
-		if (mesh->mTextureCoords[0]) // Check if the mesh contain texture coordinates
+		if (mesh->mTextureCoords[0]) // Check if the mesh contains texture coordinates
 		{
-			glm::vec2 vector;
-			vector.x = mesh->mTextureCoords[0][i].x;
-			vector.y = mesh->mTextureCoords[0][i].y;
-			vertex.TexCoords = vector;
+			glm::vec2 vector2;
+			vector2.x = mesh->mTextureCoords[0][i].x;
+			vector2.y = mesh->mTextureCoords[0][i].y;
+			vertex.TexCoords = vector2;
 		}
 		else
 		{
@@ -92,10 +92,10 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
 		vertices.push_back(vertex);
 	}
 	
-	for (int i = 0; i < mesh->mNumFaces; i++)
+	for (unsigned int i = 0; i < mesh->mNumFaces; i++)
 	{
 		aiFace face = mesh->mFaces[i];
-		for (int j = 0; j < face.mNumIndices; j++)
+		for (unsigned int j = 0; j < face.mNumIndices; j++)
 		{
 			indices.push_back(face.mIndices[j]);
 		}
@@ -118,7 +118,7 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
 std::vector<Texture> Model::loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName)
 {
 	std::vector<Texture> textures;
-	for (int i = 0; i < mat->GetTextureCount(type); i++)
+	for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
 	{
 		aiString str;
 		mat->GetTexture(type, i, &str);
