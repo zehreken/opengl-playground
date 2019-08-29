@@ -84,7 +84,8 @@ BasicLighting::BasicLighting()
 	glEnable(GL_DEPTH_TEST);
 	
 //	ship.init("/Users/zehreken/Downloads/kenney_piratekit_1/Models/OBJ format/tower.obj");
-	ship.init("/Users/zehreken/Downloads/kenney_piratekit_1/Models/OBJ format/ship_light.obj");
+//	ship.init("/Users/zehreken/Downloads/kenney_piratekit_1/Models/OBJ format/ship_light.obj");
+	ship.init("/Users/zehreken/Downloads/tower-defense-kit-1/Models/OBJ format/tile_treeQuad.obj");
 }
 
 static float lr = 0.0f;
@@ -126,8 +127,9 @@ void BasicLighting::update(int deltaX, int deltaY)
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 	}
 	
+	model = glm::translate(model, glm::vec3(0.0f, -3.0f, 0.0f));
 	model = glm::rotate(model, glm::radians((float)SDL_GetTicks() / 40.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+//	model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 	ship.draw(_shader);
 	
